@@ -17,16 +17,29 @@
 
 #pragma once
 #include <entt/entt.hpp>
+#include <raylib.h>
 
-struct Transform
-{
+struct Position {
+    Vector2 position;
+};
+
+struct TilePosition {
     int x;
     int y;
 };
 
-struct Scale
-{
+struct Scale {
     float factor;
 };
 
+struct Rotation {
+    float factor;
+};
 
+struct DrawOrder {
+    int order;
+};
+
+struct Layer {
+    int layer;
+};

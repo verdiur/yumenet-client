@@ -18,4 +18,13 @@
 #include <entt/entt.hpp>
 #include <raylib.h>
 
+int main(void)
+{
+    int sw = 640;
+    int sh = 480;
 
+    InitWindow(sw, sh, "yumenet");
+    SetTargetFPS(60);
+
+    
+}
