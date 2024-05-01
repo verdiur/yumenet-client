@@ -15,7 +15,18 @@
  * along with yumenet. If not, see <https://www.gnu.org/licenses/>.
 */
 
+#pragma once
 #include <entt/entt.hpp>
-#include <raylib.h>
+
+struct Transform
+{
+    int x;
+    int y;
+};
+
+struct Scale
+{
+    float factor;
+};
 
 
