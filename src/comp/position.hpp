@@ -16,30 +16,19 @@
 */
 
 #pragma once
-#include <entt/entt.hpp>
 #include <raylib.h>
 
-struct Position {
+
+/// @brief Pixel-based position component.
+struct Position 
+{
     Vector2 position;
 };
 
-struct TilePosition {
+
+/// @brief Tile-based position component.
+struct TilePosition 
+{
     int x;
     int y;
-};
-
-struct Scale {
-    float factor;
-};
-
-struct Rotation {
-    float factor;
-};
-
-struct DrawOrder {
-    int order;
-};
-
-struct Layer {
-    int layer;
 };
