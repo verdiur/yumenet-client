@@ -27,7 +27,7 @@ private:
     const int m_width;
     const int m_height;
     RenderTexture m_target;         // Target texture
-    Rectangle m_rec;                // Source rectangle
+    Rectangle m_game_rec;           // Source rectangle
 
 public:
 

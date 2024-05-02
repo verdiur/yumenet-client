@@ -24,20 +24,21 @@ Game::Game(int width, int height):
     m_width(width),
     m_height(height),
     m_target(),
-    m_rec({ 0, 0, (float)m_width, -(float)m_height })
+    m_game_rec({ 0, 0, (float)m_width, -(float)m_height })
 {
     assert(IsWindowReady());
     m_target = LoadRenderTexture(m_width, m_height);
 }
 
 
-Game::~Game() {
+Game::~Game()
+{
     UnloadRenderTexture(m_target);
 }
 
 
 RenderTexture Game::getTarget() { return m_target; }
-Rectangle Game::getRec()        { return m_rec; }
+Rectangle Game::getRec()        { return m_game_rec; }
 int Game::getWidth()            { return m_width; }
 int Game::getWidth() const      { return m_width; }
 int Game::getHeight()           { return m_height; }
@@ -48,8 +49,11 @@ void Game::update()
 {}
 
 
-void Game::render() {
+void Game::render()
+{
     BeginTextureMode(m_target);
         ClearBackground(BLACK);             // TODO:
+
+        DrawText("test", 0, 0, 10, WHITE);
     EndTextureMode();
 }

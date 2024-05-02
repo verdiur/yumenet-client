@@ -20,8 +20,8 @@
 
 int main(void)
 {
-    int sw = 640;
-    int sh = 480;
+    int sw = 640+101;
+    int sh = 480+101;
     int fps = 60;
 
     App app(fps, sw, sh);
