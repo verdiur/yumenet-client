@@ -82,7 +82,6 @@ void App::run()
 
     InitWindow(m_window_width, m_window_height, "yumenet");
     SetTargetFPS(m_fps);
-    SetWindowState(FLAG_WINDOW_RESIZABLE);
     loadGame();
 
     // --------------------------------------------------------------------------------------------
@@ -94,8 +93,6 @@ void App::run()
         // ----------------------------------------------------------------------------------------
         // UPDATE
 
-        updateWindowDimensions();
-        updateScaling();
         p_game->update();
         
         // ----------------------------------------------------------------------------------------
@@ -104,7 +101,7 @@ void App::run()
         p_game->render();
 
         BeginDrawing();
-            ClearBackground(RED);
+            ClearBackground(BLACK);
             DrawTexturePro(p_game->getTarget().texture, p_game->getRec(), m_app_rec, {}, 0, WHITE);
         EndDrawing();
     }
