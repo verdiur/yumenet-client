@@ -19,15 +19,28 @@
 #include <raylib.h>
 
 
-/// @brief Pixel-based position component.
-struct Position 
+/// @brief Game class. Renders on a texture that can then be scaled accordingly on the window.
+class Game
 {
-    Vector2 position;
-};
+private:
+    
+    const int m_width;
+    const int m_height;
+    RenderTexture m_target;         // Target texture
+    Rectangle m_rec;                // Source rectangle
 
+public:
 
-/// @brief Tile-based position component.
-struct TilePosition 
-{
-    int x, y;
+    Game(int width = 640, int height = 480);
+    ~Game();
+
+    int getWidth();
+    int getWidth() const;
+    int getHeight();
+    int getHeight() const;
+    RenderTexture getTarget();
+    Rectangle getRec();
+
+    void update();
+    void render();
 };

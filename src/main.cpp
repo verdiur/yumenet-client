@@ -15,16 +15,15 @@
  * along with yumenet. If not, see <https://www.gnu.org/licenses/>.
 */
 
-#include <entt/entt.hpp>
 #include <raylib.h>
+#include <core/app.hpp>
 
 int main(void)
 {
     int sw = 640;
     int sh = 480;
+    int fps = 60;
 
-    InitWindow(sw, sh, "yumenet");
-    SetTargetFPS(60);
-
-    
+    App app(fps, sw, sh);
+    app.run();
 }

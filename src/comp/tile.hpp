@@ -16,18 +16,6 @@
 */
 
 #pragma once
-#include <raylib.h>
 
 
-/// @brief Pixel-based position component.
-struct Position 
-{
-    Vector2 position;
-};
-
-
-/// @brief Tile-based position component.
-struct TilePosition 
-{
-    int x, y;
-};
+struct Tile {};
