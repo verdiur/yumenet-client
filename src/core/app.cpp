@@ -32,7 +32,7 @@ App::App(int fps, int window_width, int window_height, int game_width, int game_
     m_app_rec()
 {   
     // assign initial values to m_ratio and m_app_rec
-    updateScaling();
+    this->updateScaling();
 }
 
 
@@ -43,6 +43,7 @@ App::~App()
 void App::loadGame() {
     p_game = new Game(m_game_width, m_game_height);
 }
+
 
 void App::unloadGame()
 {
@@ -82,14 +83,13 @@ void App::run()
 
     InitWindow(m_window_width, m_window_height, "yumenet");
     SetTargetFPS(m_fps);
-    loadGame();
+    this->loadGame();
 
     // --------------------------------------------------------------------------------------------
     // GAME LOOP
 
     while (!WindowShouldClose())
     {
-
         // ----------------------------------------------------------------------------------------
         // UPDATE
 
@@ -102,13 +102,18 @@ void App::run()
 
         BeginDrawing();
             ClearBackground(BLACK);
-            DrawTexturePro(p_game->getTarget().texture, p_game->getRec(), m_app_rec, {}, 0, WHITE);
+            DrawTexturePro(
+                p_game->getTarget().texture, 
+                p_game->getRec(), 
+                m_app_rec, 
+                {}, 0, WHITE
+            );
         EndDrawing();
     }
 
     // --------------------------------------------------------------------------------------------
     // DE-INITIALIZE
 
-    unloadGame();
+    this->unloadGame();
     CloseWindow();
 }

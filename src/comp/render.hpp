@@ -22,22 +22,12 @@
 #include <raylib.h>
 
 
-struct DirtyFlag {
-    bool dirty;
-};
-
-
-/// @brief Render order component.
-/// @brief At render time, each layer is ordered before rendering based on this component.
-struct RenderOrder {
-    int index;
-};
-
-
 /// @brief Render layer component.
 /// @brief At render time, layers are sorted by index before rendering based on this component.
-struct RenderLayer {
-    int index;
+/// @see sys/render.cpp
+struct RenderOrder {
+    int y;
+    int layer;
 };
 
 

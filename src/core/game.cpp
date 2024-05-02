@@ -53,7 +53,6 @@ void Game::render()
 {
     BeginTextureMode(m_target);
         ClearBackground(BLACK);             // TODO:
-
         DrawText("test", 0, 0, 10, WHITE);
     EndTextureMode();
 }

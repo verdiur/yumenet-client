@@ -7,13 +7,13 @@ The `src/` directory is organized in this way :
 - `sys/` contains all systems;
 - `core/` contains the actual game logic.
 
-The file that's compiled into an executable is `main.cpp`.
+`main.cpp` is compiled into an executable at compile time.
 
-# Styling
+<!-- # Styling
 
 - Maximum line length is 100 characters, without counting EOLs.
 - Use 2 EOLs between each class/function block.
 - Pointers are written like so: `type *p_name`. References are styled the same.
 - Include guards are made with `#pragma once`.
 - All files must contain a GPLv3 mention.
-- Consult this for more info: [https://isocpp.github.io/CppCoreGuidelines/CppCoreGuidelines]
+- Consult this for more info: [https://isocpp.github.io/CppCoreGuidelines/CppCoreGuidelines] -->

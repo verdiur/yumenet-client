@@ -15,18 +15,20 @@ add_executable(${PROJECT_NAME}
     src/comp/render.hpp
     src/comp/rotation.hpp
     src/comp/scale.hpp
-    src/comp/tile.hpp
+    src/comp/types.hpp
 
     # systems
     src/sys/render.hpp
+    src/sys/render.cpp
 
     # core
+    src/core/consts.hpp
     src/core/app.hpp
     src/core/app.cpp
     src/core/game.hpp
     src/core/game.cpp
-
-    # utils
+    # src/core/world.hpp
+    # src/core/world.cpp
 )
 
 target_include_directories(${PROJECT_NAME}

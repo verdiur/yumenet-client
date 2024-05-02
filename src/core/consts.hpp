@@ -16,7 +16,7 @@
 */
 
 #pragma once
-#include <raylib.h>
-#include <entt/entt.hpp>
 
-void tileRender(entt::registry &reg, bool dirty);
+
+constexpr int TILE_SIZE = 16;
+constexpr int TILE_TEXTURE_SIZE = 8;

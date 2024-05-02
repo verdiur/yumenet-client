@@ -16,7 +16,24 @@
 */
 
 #pragma once
-#include <raylib.h>
+#include <string>
 #include <entt/entt.hpp>
 
-void tileRender(entt::registry &reg, bool dirty);
+
+class World
+{
+private:
+
+    std::string m_name;
+    std::string m_author;
+    int m_width;
+    int m_height;
+    entt::registry m_reg;
+
+public:
+
+    World(std::string name, int width, int height);
+    ~World();
+
+    entt::registry &getRegistry();
+};

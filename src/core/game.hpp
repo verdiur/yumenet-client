@@ -29,6 +29,14 @@ private:
     RenderTexture m_target;         // Target texture
     Rectangle m_game_rec;           // Source rectangle
 
+    enum State {
+        TITLE,
+        OPTIONS,
+        PLAYING,
+        MENU,
+        EFFECTS,
+    } m_state;
+
 public:
 
     Game(int width = 640, int height = 480);

@@ -17,5 +17,20 @@
 
 #pragma once
 
+/**
+ * This file stores all entity types. These type components allow to differentiate entities when
+ * all other components fail to do so.
+*/
 
-struct Tile {};
+
+/// @brief Player component.
+struct Player {};
+
+
+/// @brief NPC component.
+struct Npc {};
+
+
+/// @brief Portal component.
+/// @brief Portals allow the player to teleport to other worlds.
+struct Portal {};

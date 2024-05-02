@@ -15,7 +15,14 @@
  * along with yumenet. If not, see <https://www.gnu.org/licenses/>.
 */
 
-#pragma once
+#include <entt/entt.hpp>
+#include <core/consts.hpp>
+#include <core/world.hpp>
 
-
-struct Player {};
+World::World(std::string name, int chunk_width, int chunk_height):
+    m_name(name),
+    m_width(chunk_width * 40),
+    m_height(chunk_height * 30)
+{
+    
+}
