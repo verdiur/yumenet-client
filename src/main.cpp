@@ -18,6 +18,7 @@
 #include <raylib.h>
 #include <core/app.hpp>
 
+
 int main(void)
 {
     int sw = 640+101;

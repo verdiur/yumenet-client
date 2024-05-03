@@ -19,16 +19,17 @@
 #include <raylib.h>
 #include <core/game.hpp>
 
+
 /// @brief The actual app container for the `Game` instance.
 /// @brief `App` initializes and de-initializes the Raylib context via `App::run()`.
 class App
 {
 private:
 
-    int m_window_width;      // Window width.
-    int m_window_height;     // Window height.
-    int m_game_width;
-    int m_game_height;
+    int m_window_width;     // Window width.
+    int m_window_height;    // Window height.
+    int m_game_width;       // Game width.
+    int m_game_height;      // Game height.
     int m_fps;              // Frames per second.
     Game *p_game;           // Pointer to game instance.
     int m_ratio;            // Ratio between game size and window size

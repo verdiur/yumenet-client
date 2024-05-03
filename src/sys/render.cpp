@@ -17,12 +17,15 @@
 
 #include <raylib.h>
 #include <entt/entt.hpp>
+
 #include <comp/position.hpp>
 #include <comp/rotation.hpp>
 #include <comp/scale.hpp>
 #include <comp/render.hpp>
 #include <comp/types.hpp>
+
 #include <core/consts.hpp>
+
 #include <sys/render.hpp>
 
 
