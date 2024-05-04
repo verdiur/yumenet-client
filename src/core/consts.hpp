@@ -24,4 +24,4 @@ constexpr int TILE_TEXTURE_SIZE = 8;
 constexpr int TEXTURE_SIZE_MULTIPLIER = 2;
 
 /// @brief Utility shorthand to get the size of a tile in pixels
-constexpr int TILE_SIZE = TILE_TEXTURE_SIZE * TEXTURE_SIZE_MULTIPLIER
+constexpr int TILE_SIZE = TILE_TEXTURE_SIZE * TEXTURE_SIZE_MULTIPLIER;
