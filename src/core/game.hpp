@@ -16,7 +16,9 @@
 */
 
 #pragma once
+#include <vector>
 #include <raylib.h>
+#include <core/world.hpp>
 
 
 /// @brief Game class. Renders on a texture that can then be scaled accordingly on the window.
@@ -26,8 +28,8 @@ private:
     
     const int m_width;
     const int m_height;
-    RenderTexture m_target;         // Target texture
-    Rectangle m_game_rec;           // Source rectangle
+    RenderTexture m_target;             // Target texture
+    Rectangle m_game_rec;               // Source rectangle
 
     enum State {
         TITLE,

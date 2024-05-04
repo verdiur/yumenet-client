@@ -11,6 +11,7 @@ add_executable(${PROJECT_NAME}
     src/main.cpp
 
     # components
+    src/comp/origin.hpp
     src/comp/position.hpp
     src/comp/render.hpp
     src/comp/rotation.hpp
@@ -27,8 +28,8 @@ add_executable(${PROJECT_NAME}
     src/core/app.cpp
     src/core/game.hpp
     src/core/game.cpp
-    # src/core/world.hpp
-    # src/core/world.cpp
+    src/core/world.hpp
+    src/core/world.cpp
 )
 
 target_include_directories(${PROJECT_NAME}

@@ -18,6 +18,7 @@
 #include <raylib.h>
 #include <entt/entt.hpp>
 
+#include <comp/origin.hpp>
 #include <comp/position.hpp>
 #include <comp/rotation.hpp>
 #include <comp/scale.hpp>
@@ -38,20 +39,22 @@ void tileRender(entt::registry &reg)
         }
     );
     // create view
-    auto view = reg.view<TilePosition, Rotation, Scale, RenderOrder, Sprite>();
+    auto view = reg.view<TilePosition, Origin, Rotation, Scale, RenderOrder, Sprite>();
     view.use<RenderOrder>();
     // draw
-    for (auto [entity, tile_position, rotation, scale, render_order, sprite]: view.each()) {
+    for (auto [entity, tile_position, origin, rotation, scale, render_order, sprite]: view.each()) {
         DrawTexturePro(
             *sprite.p_sheet, 
             *sprite.p_frame, 
-            {
-                (float)tile_position.x * TILE_SIZE, 
-                (float)tile_position.y * TILE_SIZE,
-                TILE_SIZE,
-                TILE_SIZE},
-            {}, 0, WHITE
+            {   
+                (float)tile_position.x * TILE_SIZE - origin.origin.x, 
+                (float)tile_position.y * TILE_SIZE - origin.origin.y,
+                sprite.p_frame->width * TEXTURE_SIZE_MULTIPLIER,
+                sprite.p_frame->height * TEXTURE_SIZE_MULTIPLIER
+            },
+            {}, 
+            0,
+            WHITE
         );
     }
 }
-

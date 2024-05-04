@@ -18,11 +18,37 @@
 #include <entt/entt.hpp>
 #include <core/consts.hpp>
 #include <core/world.hpp>
+#include "world.hpp"
 
-World::World(std::string name, int chunk_width, int chunk_height):
+
+World::World(std::string name, std::string author, int chunk_width, int chunk_height):
     m_name(name),
-    m_width(chunk_width * 40),
-    m_height(chunk_height * 30)
+    m_author(author),
+    m_chunk_width(chunk_width),
+    m_chunk_height(chunk_height),
+    m_reg()
+{}
+
+
+World::World(World &world)
 {
-    
+    // TODO:
+}
+
+
+World::~World()
+{
+    m_reg.clear();
+}
+
+
+void World::update()
+{
+    // TODO:
+}
+
+
+void World::render()
+{
+    // TODO:
 }

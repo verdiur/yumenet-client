@@ -51,6 +51,8 @@ struct Spritesheet {
 /// @brief Spritesheet-based sprite component.
 /// @brief Uses pointers, to be used in conjunction with a `Spritesheet`.
 struct Sprite {
+    /// @brief Spritesheet texture.
     Texture *p_sheet;
+    /// @brief Rectangle that delimits the portion of the spritesheet to use.
     Rectangle *p_frame;
 };

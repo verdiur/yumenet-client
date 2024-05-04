@@ -19,4 +19,7 @@
 #include <raylib.h>
 #include <entt/entt.hpp>
 
-void tileRender(entt::registry &reg, bool dirty);
+
+/// @brief render all tile-like entities. This includes ground, walls, ceiling, characters.
+/// @param reg Entity registry.
+void tileRender(entt::registry &reg);

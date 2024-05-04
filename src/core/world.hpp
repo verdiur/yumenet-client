@@ -26,14 +26,19 @@ private:
 
     std::string m_name;
     std::string m_author;
-    int m_width;
-    int m_height;
+    int m_chunk_width;              // the width of a chunk is 40 tiles
+    int m_chunk_height;             // the height of a chunk is 30 tiles
     entt::registry m_reg;
 
 public:
 
-    World(std::string name, int width, int height);
+    
+    World(std::string name, std::string author, int chunk_width, int chunk_height);
+    World (World &world);
     ~World();
 
     entt::registry &getRegistry();
+
+    void update();
+    void render();
 };
