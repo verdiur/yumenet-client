@@ -15,50 +15,45 @@
  * along with yumenet. If not, see <https://www.gnu.org/licenses/>.
 */
 
-#include <entt/entt.hpp>
-
-#include <core/consts.hpp>
-#include <core/world.hpp>
-#include <sys/move.hpp>
-#include <sys/render.hpp>
+#pragma once
+#include <raylib.h>
 
 
-World::World(std::string name, std::string author, int chunk_width, int chunk_height):
-    m_name(name),
-    m_author(author),
-    m_chunk_width(chunk_width),
-    m_chunk_height(chunk_height),
-    m_reg()
-{}
-
-
-World::World(World &world)
+struct IsMoving
 {
-    // TODO:
-}
+    bool answer;
+};
 
 
-World::~World()
+struct CanMove
 {
-    m_reg.clear();
-}
+    bool answer;
+};
 
 
-void World::update()
+/// @brief This is where the entity started moving from.
+struct FromTilePosition
 {
-    // TODO:
-
-    // Movement control
-    controlMoveNpc(m_reg);
-    controlMovePlayer(m_reg);
-
-    // Movement execution
-    moveCharacter(m_reg);
-}
+    Vector2 position;
+};
 
 
-void World::render()
+/// @brief Desired tile position. This is where the entity wants to go.
+struct ToTilePosition
 {
-    // TODO:
-    renderTile(m_reg);
-}
+    Vector2 position;
+};
+
+
+/// @brief Linear interpolation for movement function.
+struct MoveLerp
+{
+    float amount;
+};
+
+
+/// @brief Speed component.
+struct Speed
+{
+    float speed;
+};

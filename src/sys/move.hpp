@@ -16,10 +16,40 @@
 */
 
 #pragma once
-#include <raylib.h>
 #include <entt/entt.hpp>
 
+#include <utils/rng.hpp>
+#include <utils/dir_to_pos.hpp>
+#include <comp/direction.hpp>
+#include <comp/move.hpp>
+#include <comp/position.hpp>
+#include <comp/types.hpp>
+#include <core/consts.hpp>
 
-/// @brief render all tile-like entities. This includes ground, walls, ceiling, characters.
+
+namespace
+{
+    void randomMoveControl(
+        IsMoving &is_moving, 
+        TilePosition &current, 
+        FromTilePosition &from, 
+        ToTilePosition &to, 
+        CharacterDirection direction
+    );
+}
+
+
+/// @brief Npc movement control.
 /// @param reg Entity registry.
-void renderTile(entt::registry &reg);
+void controlMoveNpc(entt::registry &reg);
+
+
+/// @brief Player movement control.
+/// @param reg Entity registry.
+/// TODO:
+void controlMovePlayer(entt::registry &reg);
+
+
+/// @brief Move all Npcs and update state for 1 frame. 
+/// @param reg Entity registry.
+void moveCharacter(entt::registry &reg);

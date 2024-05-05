@@ -15,50 +15,23 @@
  * along with yumenet. If not, see <https://www.gnu.org/licenses/>.
 */
 
-#include <entt/entt.hpp>
-
-#include <core/consts.hpp>
-#include <core/world.hpp>
-#include <sys/move.hpp>
-#include <sys/render.hpp>
+#pragma once
+#include <random>
 
 
-World::World(std::string name, std::string author, int chunk_width, int chunk_height):
-    m_name(name),
-    m_author(author),
-    m_chunk_width(chunk_width),
-    m_chunk_height(chunk_height),
-    m_reg()
-{}
-
-
-World::World(World &world)
+/// @brief Random Number Generation namespace.
+namespace Rng
 {
-    // TODO:
-}
+    std::random_device rd;
+    std::mt19937 gen(rd());
 
 
-World::~World()
-{
-    m_reg.clear();
-}
+    /// @brief Random direction generator.
+    /// @brief 1 = UP, 2 = DOWN, 3 = LEFT, 4 = RIGHT
+    std::uniform_int_distribution<> direction(1, 4);
 
 
-void World::update()
-{
-    // TODO:
-
-    // Movement control
-    controlMoveNpc(m_reg);
-    controlMovePlayer(m_reg);
-
-    // Movement execution
-    moveCharacter(m_reg);
-}
-
-
-void World::render()
-{
-    // TODO:
-    renderTile(m_reg);
+    /// @brief Random movement probability determiner.
+    /// @brief Generates a number that is compared against a probability.    
+    std::uniform_real_distribution<> move(0, 1);
 }

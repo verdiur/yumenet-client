@@ -24,13 +24,11 @@
 #include <comp/scale.hpp>
 #include <comp/render.hpp>
 #include <comp/types.hpp>
-
 #include <core/consts.hpp>
-
 #include <sys/render.hpp>
 
 
-void tileRender(entt::registry &reg)
+void renderTile(entt::registry &reg)
 {
     // sort registry
     reg.sort<RenderOrder>(
@@ -47,8 +45,8 @@ void tileRender(entt::registry &reg)
             *sprite.p_sheet, 
             *sprite.p_frame, 
             {   
-                (float)tile_position.x * TILE_SIZE - origin.origin.x, 
-                (float)tile_position.y * TILE_SIZE - origin.origin.y,
+                tile_position.position.x * TILE_SIZE - origin.origin.x, 
+                tile_position.position.y * TILE_SIZE - origin.origin.y,
                 sprite.p_frame->width * TEXTURE_SIZE_MULTIPLIER,
                 sprite.p_frame->height * TEXTURE_SIZE_MULTIPLIER
             },

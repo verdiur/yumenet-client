@@ -29,5 +29,5 @@ struct Position
 /// @brief Tile-based position component.
 struct TilePosition 
 {
-    int x, y;
+    Vector2 position;
 };

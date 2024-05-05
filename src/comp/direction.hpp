@@ -15,50 +15,29 @@
  * along with yumenet. If not, see <https://www.gnu.org/licenses/>.
 */
 
-#include <entt/entt.hpp>
-
-#include <core/consts.hpp>
-#include <core/world.hpp>
-#include <sys/move.hpp>
-#include <sys/render.hpp>
+#pragma once
+#include <raylib.h>
 
 
-World::World(std::string name, std::string author, int chunk_width, int chunk_height):
-    m_name(name),
-    m_author(author),
-    m_chunk_width(chunk_width),
-    m_chunk_height(chunk_height),
-    m_reg()
-{}
-
-
-World::World(World &world)
+/// @brief Direction component for characters.
+struct CharacterDirection
 {
-    // TODO:
-}
+    enum D {
+        UP = 0,
+        DOWN,
+        LEFT,
+        RIGHT
+    } direction;
+};
 
 
-World::~World()
+/// @brief Direction component for stairs. Contains diagonal directions.
+struct StairsDirection
 {
-    m_reg.clear();
-}
-
-
-void World::update()
-{
-    // TODO:
-
-    // Movement control
-    controlMoveNpc(m_reg);
-    controlMovePlayer(m_reg);
-
-    // Movement execution
-    moveCharacter(m_reg);
-}
-
-
-void World::render()
-{
-    // TODO:
-    renderTile(m_reg);
-}
+    enum D {
+        UP_LEFT = 0,
+        UP_RIGHT,
+        DOWN_LEFT,
+        DOWN_RIGHT
+    } direction;
+};

@@ -38,12 +38,18 @@ A `Game` instance contains the actual game. It handles rendering on a `RenderTex
 
 An `World` instance represents a world, and contains a `entt::registry`.
 
-### Rendering systems
+### Systems
 
-The systems for rendering all entities are written inside of `src/sys/render.cpp`. These systems are then called by the `World` instance through the `World::render()` method.
-
-### Behavior systems
+#### Creation
 
 > TBD
 
-The behavior systems are called by the `World` instance through the `World::update()` method.
+#### Rendering
+
+The systems for rendering all entities are written inside of `src/sys/render.cpp`. These systems are then called by the `World` instance through the `World::render()` method.
+
+#### Updating
+
+> TBD
+
+The update systems are called by the `World` instance through the `World::update()` method.

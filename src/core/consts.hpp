@@ -16,6 +16,8 @@
 */
 
 #pragma once
+#include <random>
+
 
 /// @brief Size of a tile texture in pixels
 constexpr int TILE_TEXTURE_SIZE = 8;   
@@ -25,3 +27,11 @@ constexpr int TEXTURE_SIZE_MULTIPLIER = 2;
 
 /// @brief Utility shorthand to get the size of a tile in pixels
 constexpr int TILE_SIZE = TILE_TEXTURE_SIZE * TEXTURE_SIZE_MULTIPLIER;
+
+
+/// @brief Time required for a 1-tile move at normal speed.
+constexpr float MOVE_TIME = 1;
+
+/// @brief Movement probability.
+constexpr float MOVE_PROBABILITY = 0.2;
+

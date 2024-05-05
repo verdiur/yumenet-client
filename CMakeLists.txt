@@ -11,6 +11,8 @@ add_executable(${PROJECT_NAME}
     src/main.cpp
 
     # components
+    src/comp/direction.hpp
+    src/comp/move.hpp
     src/comp/origin.hpp
     src/comp/position.hpp
     src/comp/render.hpp
@@ -19,6 +21,8 @@ add_executable(${PROJECT_NAME}
     src/comp/types.hpp
 
     # systems
+    src/sys/move.hpp
+    src/sys/move.cpp
     src/sys/render.hpp
     src/sys/render.cpp
 
@@ -30,6 +34,11 @@ add_executable(${PROJECT_NAME}
     src/core/game.cpp
     src/core/world.hpp
     src/core/world.cpp
+
+    # utils
+    src/utils/rng.hpp
+    src/utils/dir_to_pos.hpp
+    src/utils/dir_to_pos.cpp
 )
 
 target_include_directories(${PROJECT_NAME}

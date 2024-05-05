@@ -15,50 +15,9 @@
  * along with yumenet. If not, see <https://www.gnu.org/licenses/>.
 */
 
-#include <entt/entt.hpp>
-
-#include <core/consts.hpp>
-#include <core/world.hpp>
-#include <sys/move.hpp>
-#include <sys/render.hpp>
+#pragma once
+#include <raylib.h>
+#include <comp/direction.hpp>
 
 
-World::World(std::string name, std::string author, int chunk_width, int chunk_height):
-    m_name(name),
-    m_author(author),
-    m_chunk_width(chunk_width),
-    m_chunk_height(chunk_height),
-    m_reg()
-{}
-
-
-World::World(World &world)
-{
-    // TODO:
-}
-
-
-World::~World()
-{
-    m_reg.clear();
-}
-
-
-void World::update()
-{
-    // TODO:
-
-    // Movement control
-    controlMoveNpc(m_reg);
-    controlMovePlayer(m_reg);
-
-    // Movement execution
-    moveCharacter(m_reg);
-}
-
-
-void World::render()
-{
-    // TODO:
-    renderTile(m_reg);
-}
+Vector2 characterDirToPos(Vector2 from, CharacterDirection::D dir);
