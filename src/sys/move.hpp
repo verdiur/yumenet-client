@@ -27,29 +27,6 @@
 #include <core/consts.hpp>
 
 
-namespace
-{
-    void randomMoveControl(
-        IsMoving &is_moving, 
-        TilePosition &current, 
-        FromTilePosition &from, 
-        ToTilePosition &to, 
-        CharacterDirection direction
-    );
-}
-
-
-/// @brief Npc movement control.
-/// @param reg Entity registry.
-void controlMoveNpc(entt::registry &reg);
-
-
-/// @brief Player movement control.
-/// @param reg Entity registry.
-/// TODO:
-// void controlMovePlayer(entt::registry &reg);
-
-
 /// @brief Move all Npcs and update state for 1 frame. 
 /// @param reg Entity registry.
 void moveCharacter(entt::registry &reg);

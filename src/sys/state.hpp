@@ -16,26 +16,26 @@
 */
 
 #pragma once
-#include <raylib.h>
+#include <entt/entt.hpp>
+
+#include <comp/direction.hpp>
+#include <comp/position.hpp>
+#include <comp/move.hpp>
 
 
-/// @brief Direction component for characters.
-struct CharacterDirection {
-    enum D {
-        UP = 0,
-        DOWN,
-        LEFT,
-        RIGHT
-    } direction;
-};
+/// @brief Utility functions
+namespace
+{
+    void randomMoveControl(
+        IsMoving &is_moving, 
+        TilePosition &current, 
+        FromTilePosition &from, 
+        ToTilePosition &to, 
+        CharacterDirection direction
+    );
+}
 
 
-/// @brief Direction component for stairs. Contains diagonal directions.
-struct StairsDirection {
-    enum D {
-        UP_LEFT = 0,
-        UP_RIGHT,
-        DOWN_LEFT,
-        DOWN_RIGHT
-    } direction;
-};
+/// @brief Npc movement control.
+/// @param reg Entity registry.
+void updateMoveNpc(entt::registry &reg);

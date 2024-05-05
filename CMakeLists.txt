@@ -25,6 +25,8 @@ add_executable(${PROJECT_NAME}
     src/sys/move.cpp
     src/sys/render.hpp
     src/sys/render.cpp
+    src/sys/state.cpp
+    src/sys/state.hpp
 
     # core
     src/core/consts.hpp

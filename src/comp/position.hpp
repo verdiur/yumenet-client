@@ -20,14 +20,12 @@
 
 
 /// @brief Pixel-based position component.
-struct Position 
-{
+struct Position {
     Vector2 position;
 };
 
 
 /// @brief Tile-based position component.
-struct TilePosition 
-{
+struct TilePosition {
     Vector2 position;
 };

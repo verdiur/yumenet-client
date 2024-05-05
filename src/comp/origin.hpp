@@ -20,7 +20,6 @@
 
 
 /// @brief Pixel-based origin component.
-struct Origin
-{
+struct Origin {
     Vector2 origin;
 };

@@ -19,48 +19,11 @@
 #include <raylib.h>
 #include <raymath.h>
 
-#include <utils/rng.hpp>
-#include <utils/dir_to_pos.hpp>
-#include <comp/direction.hpp>
 #include <comp/move.hpp>
 #include <comp/position.hpp>
 #include <comp/types.hpp>
 #include <core/consts.hpp>
 #include <sys/move.hpp>
-
-
-/// @brief Utility functions
-namespace
-{
-    void randomMoveControl(
-        IsMoving &is_moving, 
-        TilePosition &current, 
-        FromTilePosition &from, 
-        ToTilePosition &to, 
-        CharacterDirection direction
-    ) {
-        if (Rng::move(Rng::gen) < MOVE_PROBABILITY)
-        {
-            // init movement
-            is_moving.answer = true;
-            // choose direction
-            direction.direction = CharacterDirection::D(Rng::direction(Rng::gen));
-            // set from and to
-            from.position = current.position;
-            to.position = characterDirToPos(from.position, direction.direction);
-        }
-    }
-}
-
-
-void controlMoveNpc(entt::registry &reg)
-{
-    auto view = reg.view<Npc, IsMoving, TilePosition, FromTilePosition, ToTilePosition, CharacterDirection>();
-    for (auto [entity, is_moving, current, from, to, direction]: view.each())
-    {
-        randomMoveControl(is_moving, current, from, to, direction);
-    }
-}
 
 
 void moveCharacter(entt::registry &reg)

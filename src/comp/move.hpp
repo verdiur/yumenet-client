@@ -19,41 +19,35 @@
 #include <raylib.h>
 
 
-struct IsMoving
-{
+struct IsMoving {
     bool answer;
 };
 
 
-struct CanMove
-{
+struct CanMove {
     bool answer;
 };
 
 
 /// @brief This is where the entity started moving from.
-struct FromTilePosition
-{
+struct FromTilePosition {
     Vector2 position;
 };
 
 
 /// @brief Desired tile position. This is where the entity wants to go.
-struct ToTilePosition
-{
+struct ToTilePosition {
     Vector2 position;
 };
 
 
 /// @brief Linear interpolation for movement function.
-struct MoveLerp
-{
+struct MoveLerp {
     float amount;
 };
 
 
 /// @brief Speed component.
-struct Speed
-{
+struct Speed {
     float speed;
 };

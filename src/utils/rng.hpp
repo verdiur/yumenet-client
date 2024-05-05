@@ -18,7 +18,6 @@
 #pragma once
 #include <random>
 
-
 /// @brief Random Number Generation namespace.
 namespace Rng
 {

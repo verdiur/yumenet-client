@@ -20,6 +20,7 @@
 #include <core/consts.hpp>
 #include <core/world.hpp>
 #include <sys/move.hpp>
+#include <sys/state.hpp>
 #include <sys/render.hpp>
 
 
@@ -49,7 +50,7 @@ void World::update()
     // TODO:
 
     // Movement control
-    controlMoveNpc(m_reg);
+    updateMoveNpc(m_reg);
     // controlMovePlayer(m_reg);
 
     // Movement execution
