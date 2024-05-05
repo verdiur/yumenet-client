@@ -22,16 +22,16 @@
 /// @brief Random Number Generation namespace.
 namespace Rng
 {
-    std::random_device rd;
-    std::mt19937 gen(rd());
+    static std::random_device rd;
+    static std::mt19937 gen(rd());
 
 
     /// @brief Random direction generator.
     /// @brief 1 = UP, 2 = DOWN, 3 = LEFT, 4 = RIGHT
-    std::uniform_int_distribution<> direction(1, 4);
+    static std::uniform_int_distribution<> direction(1, 4);
 
 
     /// @brief Random movement probability determiner.
     /// @brief Generates a number that is compared against a probability.    
-    std::uniform_real_distribution<> move(0, 1);
+    static std::uniform_real_distribution<> move(0, 1);
 }

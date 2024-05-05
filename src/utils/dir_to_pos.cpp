@@ -34,5 +34,7 @@ Vector2 characterDirToPos(Vector2 from, CharacterDirection::D dir)
         return {from.x - TILE_SIZE, from.y};
     case CharacterDirection::RIGHT:
         return {from.x + TILE_SIZE, from.y};
+    default:
+        return {from.x, from.y};
     }
 }

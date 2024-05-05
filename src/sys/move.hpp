@@ -47,7 +47,7 @@ void controlMoveNpc(entt::registry &reg);
 /// @brief Player movement control.
 /// @param reg Entity registry.
 /// TODO:
-void controlMovePlayer(entt::registry &reg);
+// void controlMovePlayer(entt::registry &reg);
 
 
 /// @brief Move all Npcs and update state for 1 frame. 

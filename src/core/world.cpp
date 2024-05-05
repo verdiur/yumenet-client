@@ -50,7 +50,7 @@ void World::update()
 
     // Movement control
     controlMoveNpc(m_reg);
-    controlMovePlayer(m_reg);
+    // controlMovePlayer(m_reg);
 
     // Movement execution
     moveCharacter(m_reg);
