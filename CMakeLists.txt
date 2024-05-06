@@ -11,14 +11,15 @@ add_executable(${PROJECT_NAME}
     src/main.cpp
 
     # components
-    src/comp/direction.hpp
+    src/comp/coord/direction.hpp
+    
+    src/comp/coord/origin.hpp
+    src/comp/coord/position.hpp
+    src/comp/coord/rotation.hpp
+    src/comp/coord/scale.hpp
     src/comp/move.hpp
-    src/comp/origin.hpp
-    src/comp/position.hpp
     src/comp/render.hpp
-    src/comp/rotation.hpp
-    src/comp/scale.hpp
-    src/comp/types.hpp
+    src/comp/tags.hpp
 
     # systems
     src/sys/move.hpp
@@ -38,9 +39,9 @@ add_executable(${PROJECT_NAME}
     src/core/world.cpp
 
     # utils
-    src/utils/rng.hpp
     src/utils/dir_to_pos.hpp
     src/utils/dir_to_pos.cpp
+    src/utils/rng.hpp
 )
 
 target_include_directories(${PROJECT_NAME}
