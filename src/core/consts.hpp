@@ -23,11 +23,10 @@
 constexpr int TILE_TEXTURE_SIZE = 8;   
 
 /// @brief When rendering, textures are scaled by a factor of 2
-constexpr int TEXTURE_SIZE_MULTIPLIER = 2;
+constexpr int TILE_TEXTURE_SIZE_MULTIPLIER = 2;
 
 /// @brief Utility shorthand to get the size of a tile in pixels
-constexpr int TILE_SIZE = TILE_TEXTURE_SIZE * TEXTURE_SIZE_MULTIPLIER;
-
+constexpr int TILE_SIZE = TILE_TEXTURE_SIZE * TILE_TEXTURE_SIZE_MULTIPLIER;
 
 /// @brief Time required for a 1-tile move at normal speed.
 constexpr float MOVE_TIME = 1;

@@ -19,11 +19,14 @@
 
 #include <utils/rng.hpp>
 #include <utils/dir_to_pos.hpp>
-#include <core/consts.hpp>
-#include <comp/direction.hpp>
-#include <comp/position.hpp>
+
+#include <comp/coord/direction.hpp>
+#include <comp/coord/position.hpp>
 #include <comp/move.hpp>
-#include <comp/types.hpp>
+#include <comp/tags.hpp>
+
+#include <core/consts.hpp>
+
 #include <sys/state.hpp>
 
 
@@ -32,8 +35,8 @@ namespace
     void randomMoveControl(
         IsMoving &is_moving, 
         TilePosition &current, 
-        FromTilePosition &from, 
-        ToTilePosition &to, 
+        MoveFromTile &from, 
+        MoveToTile &to, 
         CharacterDirection direction
     ) {
         if (Rng::move(Rng::gen) < MOVE_PROBABILITY && is_moving.answer == false)
@@ -52,7 +55,7 @@ namespace
 
 void updateMoveNpc(entt::registry &reg)
 {
-    auto view = reg.view<Npc, IsMoving, TilePosition, FromTilePosition, ToTilePosition, CharacterDirection>();
+    auto view = reg.view<Npc, IsMoving, TilePosition, MoveFromTile, MoveToTile, CharacterDirection>();
     for (auto [entity, is_moving, current, from, to, direction]: view.each())
     {
         randomMoveControl(is_moving, current, from, to, direction);

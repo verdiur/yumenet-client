@@ -19,16 +19,16 @@
 #include <raylib.h>
 #include <raymath.h>
 
+#include <comp/coord/position.hpp>
 #include <comp/move.hpp>
-#include <comp/position.hpp>
-#include <comp/types.hpp>
+#include <comp/tags.hpp>
 #include <core/consts.hpp>
 #include <sys/move.hpp>
 
 
 void moveCharacter(entt::registry &reg)
 {
-    auto view = reg.view<Npc, IsMoving, TilePosition, FromTilePosition, ToTilePosition, MoveLerp, Speed>();
+    auto view = reg.view<Npc, IsMoving, TilePosition, MoveFromTile, MoveToTile, MoveLerp, MoveSpeed>();
     for (auto [entity, is_moving, current, from, to, move_lerp, speed]: view.each())
     {
         if (is_moving.answer == true) 

@@ -18,7 +18,7 @@
 #pragma once
 
 /**
- * This file stores all entity types. These type components allow to differentiate entities when
+ * This file stores all entity tags. These type components allow to differentiate entities when
  * all other components fail to do so.
 */
 
