@@ -18,13 +18,15 @@
 #include <raylib.h>
 #include <entt/entt.hpp>
 
-#include <comp/origin.hpp>
-#include <comp/position.hpp>
-#include <comp/rotation.hpp>
-#include <comp/scale.hpp>
+#include <comp/coord/origin.hpp>
+#include <comp/coord/position.hpp>
+#include <comp/coord/rotation.hpp>
+#include <comp/coord/scale.hpp>
 #include <comp/render.hpp>
-#include <comp/types.hpp>
+#include <comp/tags.hpp>
+
 #include <core/consts.hpp>
+
 #include <sys/render.hpp>
 
 
@@ -47,8 +49,8 @@ void renderTile(entt::registry &reg)
             {   
                 tile_position.position.x * TILE_SIZE - origin.origin.x, 
                 tile_position.position.y * TILE_SIZE - origin.origin.y,
-                sprite.p_frame->width * TEXTURE_SIZE_MULTIPLIER,
-                sprite.p_frame->height * TEXTURE_SIZE_MULTIPLIER
+                sprite.p_frame->width * TILE_TEXTURE_SIZE_MULTIPLIER,
+                sprite.p_frame->height * TILE_TEXTURE_SIZE_MULTIPLIER
             },
             {}, 
             0,

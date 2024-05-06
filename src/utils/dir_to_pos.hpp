@@ -17,7 +17,13 @@
 
 #pragma once
 #include <raylib.h>
-#include <comp/direction.hpp>
+
+#include <comp/coord/direction.hpp>
 
 
+/// @brief Convert a CharacterDirection enum to a destination tile vector relative to 
+/// @brief an initial tile vector.
+/// @param from Initial tile vector.
+/// @param dir Direction the character is pointing to.
+/// @return Destination tile vector.
 Vector2 characterDirToPos(Vector2 from, CharacterDirection::D dir);

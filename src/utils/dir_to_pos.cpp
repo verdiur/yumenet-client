@@ -17,8 +17,8 @@
 
 #include <raylib.h>
 
+#include <comp/coord/direction.hpp>
 #include <core/consts.hpp>
-#include <comp/direction.hpp>
 #include <utils/dir_to_pos.hpp>
 
 
@@ -35,6 +35,7 @@ Vector2 characterDirToPos(Vector2 from, CharacterDirection::D dir)
     case CharacterDirection::RIGHT:
         return {from.x + TILE_SIZE, from.y};
     default:
-        return {from.x, from.y};
+        // simply return the initial vector.
+        return from;
     }
 }

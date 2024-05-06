@@ -18,8 +18,8 @@
 #pragma once
 #include <entt/entt.hpp>
 
-#include <comp/direction.hpp>
-#include <comp/position.hpp>
+#include <comp/coord/direction.hpp>
+#include <comp/coord/position.hpp>
 #include <comp/move.hpp>
 
 
@@ -29,8 +29,8 @@ namespace
     void randomMoveControl(
         IsMoving &is_moving, 
         TilePosition &current, 
-        FromTilePosition &from, 
-        ToTilePosition &to, 
+        MoveFromTile &from, 
+        MoveToTile &to, 
         CharacterDirection direction
     );
 }

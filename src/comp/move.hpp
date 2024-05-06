@@ -30,13 +30,13 @@ struct CanMove {
 
 
 /// @brief This is where the entity started moving from.
-struct FromTilePosition {
+struct MoveFromTile {
     Vector2 position;
 };
 
 
 /// @brief Desired tile position. This is where the entity wants to go.
-struct ToTilePosition {
+struct MoveToTile {
     Vector2 position;
 };
 
@@ -48,6 +48,6 @@ struct MoveLerp {
 
 
 /// @brief Speed component.
-struct Speed {
+struct MoveSpeed {
     float speed;
 };

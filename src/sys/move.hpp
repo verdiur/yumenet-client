@@ -20,10 +20,12 @@
 
 #include <utils/rng.hpp>
 #include <utils/dir_to_pos.hpp>
-#include <comp/direction.hpp>
+
+#include <comp/coord/position.hpp>
+#include <comp/coord/direction.hpp>
 #include <comp/move.hpp>
-#include <comp/position.hpp>
-#include <comp/types.hpp>
+#include <comp/tags.hpp>
+
 #include <core/consts.hpp>
 
 
