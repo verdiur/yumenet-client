@@ -17,6 +17,7 @@
 
 #include <cmath>
 #include <raylib.h>
+
 #include <core/app.hpp>
 #include <core/game.hpp>
 

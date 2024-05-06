@@ -22,7 +22,9 @@
 #include <comp/coord/position.hpp>
 #include <comp/move.hpp>
 #include <comp/tags.hpp>
+
 #include <core/consts.hpp>
+
 #include <sys/move.hpp>
 
 

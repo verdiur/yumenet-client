@@ -17,6 +17,7 @@
 
 #include <cassert>
 #include <raylib.h>
+
 #include <core/game.hpp>
 
 
