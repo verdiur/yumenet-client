@@ -16,5 +16,19 @@
 */
 
 #pragma once
+#include <entt/entt.hpp>
+
+#include <comp/coord/position.hpp>
+#include <comp/coord/direction.hpp>
+#include <comp/move.hpp>
 
 
+/// @brief control regular NPCs. Any other NPC that doesn't have fully random behavior
+/// @brief must be controlled through another system.
+/// @param reg Entity registry
+void controlPassiveNpcMove(entt::registry &reg);
+
+
+/// @brief control Toriningen.
+/// @param reg Entity registry
+void controlToriningen(entt::registry &reg);

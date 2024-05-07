@@ -21,12 +21,12 @@ add_executable(${PROJECT_NAME}
     src/comp/tags.hpp
 
     # systems
+    src/sys/control.hpp
+    src/sys/control.cpp
     src/sys/move.hpp
     src/sys/move.cpp
     src/sys/render.hpp
     src/sys/render.cpp
-    src/sys/state.cpp
-    src/sys/state.hpp
 
     # core
     src/core/consts.hpp

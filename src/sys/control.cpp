@@ -20,44 +20,30 @@
 #include <utils/rng.hpp>
 #include <utils/dir_to_pos.hpp>
 
-#include <comp/coord/direction.hpp>
 #include <comp/coord/position.hpp>
+#include <comp/coord/direction.hpp>
 #include <comp/move.hpp>
 #include <comp/tags.hpp>
 
 #include <core/consts.hpp>
 
-#include <sys/state.hpp>
+#include <sys/control.hpp>
 
 
-namespace
+void controlPassiveNpcMove(entt::registry &reg) 
 {
-    void randomMoveControl(
-        IsMoving &is_moving, 
-        TilePosition &current, 
-        MoveFromTile &from, 
-        MoveToTile &to, 
-        CharacterDirection direction
-    ) {
+    auto view = reg.view<PassiveNpc, CharacterDirection, IsMoving, TilePosition, MoveFromTile, MoveToTile>();
+    for (auto [entity, direction, is_moving, current, from, to]: view.each())
+    {
         if (Rng::move(Rng::gen) < MOVE_PROBABILITY && is_moving.answer == false)
         {
             // init movement
             is_moving.answer = true;
-            // choose direction
+            // choose random direction
             direction.direction = CharacterDirection::D(Rng::direction(Rng::gen));
             // set from and to
             from.position = current.position;
             to.position = characterDirToPos(from.position, direction.direction);
         }
-    }
-}
-
-
-void updateMoveNpc(entt::registry &reg)
-{
-    auto view = reg.view<Npc, IsMoving, TilePosition, MoveFromTile, MoveToTile, CharacterDirection>();
-    for (auto [entity, is_moving, current, from, to, direction]: view.each())
-    {
-        randomMoveControl(is_moving, current, from, to, direction);
     }
 }

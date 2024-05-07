@@ -31,8 +31,8 @@ struct Tile {};
 struct Player {};
 
 
-/// @brief NPC component.
-struct Npc {};
+/// @brief Passive NPC component.
+struct PassiveNpc {};
 
 
 /// @brief Portal component.

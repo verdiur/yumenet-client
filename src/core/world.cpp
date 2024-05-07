@@ -20,9 +20,8 @@
 #include <core/consts.hpp>
 #include <core/world.hpp>
 
+#include <sys/control.hpp>
 #include <sys/move.hpp>
-#include <sys/state.hpp>
-#include <sys/render.hpp>
 
 
 World::World(std::string name, std::string author, int chunk_width, int chunk_height):
@@ -50,11 +49,10 @@ void World::update()
 {
     // TODO:
 
-    // Movement control
-    updateMoveNpc(m_reg);
-    // controlMovePlayer(m_reg);
+    // control
+    controlPassiveNpcMove(m_reg);
 
-    // Movement execution
+    // perform
     moveCharacter(m_reg);
 }
 
@@ -62,5 +60,4 @@ void World::update()
 void World::render()
 {
     // TODO:
-    renderTile(m_reg);
 }

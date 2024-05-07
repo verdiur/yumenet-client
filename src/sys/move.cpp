@@ -30,7 +30,7 @@
 
 void moveCharacter(entt::registry &reg)
 {
-    auto view = reg.view<Npc, IsMoving, TilePosition, MoveFromTile, MoveToTile, MoveLerp, MoveSpeed>();
+    auto view = reg.view<IsMoving, TilePosition, MoveFromTile, MoveToTile, MoveLerp, MoveSpeed>();
     for (auto [entity, is_moving, current, from, to, move_lerp, speed]: view.each())
     {
         if (is_moving.answer == true) 
