@@ -61,4 +61,3 @@ void updateMoveNpc(entt::registry &reg)
         randomMoveControl(is_moving, current, from, to, direction);
     }
 }
-

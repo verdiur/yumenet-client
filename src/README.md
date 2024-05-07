@@ -38,23 +38,27 @@ An `World` instance represents a world, and contains a `entt::registry`.
 ### Systems
 For each frame, systems are executed in the following order:
 
+- **Input**
 - **Update**
-    - Control-based
-    - State-based
-    - Movement
+    - Control actions
+    - Trigger or stop actions
+    - Perform actions
 - **Render**
     - Background
     - Tiles + Characters
     - Overlay
 
-#### Control-based updates
-The control-based updating (i.e. needing the player's input) systems are called by the `World` are written inside of `src/sys/control.cpp`. These systems are then called by the `World` instance through the `World::update()` method.
+#### Input
+These systems check player input and updates the game state accordingly. They are called by the `World` instance through the `World::update()` method.
 
-#### State-based updates
-The state-based updating (i.e. not needing the player's input) systems are called by the `World` are written inside of `src/sys/state.cpp`. These systems are then called by the `World` instance through the `World::update()` method.
+#### Update
+These systems update the game loop. They are called by the `World` instance through the `World::update()` method.
 
-#### Movement
-Movement systems are written inside of `src/sys/move.cpp`. These systems are then called by the `World` instance through the `World::update()` method.
+- First, the game prepares (*controls*) the actions to perform (i.e. should it be moving? should it change color? should it die? should anything spawn?). This is where the game logic is.
 
-#### Rendering
-The systems for rendering all entities are written inside of `src/sys/render.cpp`. These systems are then called by the `World` instance through the `World::render()` method.
+- Then, the game *triggered* or *stops* actions. (i.e. move, die, spawn).
+
+- The game *performs* all triggered actions.
+
+#### Render
+The systems for rendering all entities are written inside of `src/sys/render.cpp`. These systems are called by the `World` instance through the `World::render()` method.
