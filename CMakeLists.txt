@@ -12,7 +12,6 @@ add_executable(${PROJECT_NAME}
 
     # components
     src/comp/coord/direction.hpp
-    
     src/comp/coord/origin.hpp
     src/comp/coord/position.hpp
     src/comp/coord/rotation.hpp
