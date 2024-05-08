@@ -2,11 +2,11 @@
 #include <string>
 
 #include <raylib.h>
-
 #include <core/game.hh>
 
 
 /// @brief App container.
+/// @brief Pretty much contains everything.
 class App
 {
 private:
@@ -21,6 +21,13 @@ private:
 
     /// @brief Utility function that draws the game on the window.
     void drawGame(float scale);
+
+    /// @brief Calculate game scale factor.
+    /// @return Factor to scale game render target
+    int calcGameScaleFactor();
+
+    /// @brief Update window dimensions. Useful in case of window resizing.
+    void updateWindowDimensions();
 
 public:
 
