@@ -8,39 +8,11 @@ add_subdirectory(libs/entt)
 
 add_executable(${PROJECT_NAME}
     # main
-    src/main.cpp
-
+    src/main.cc
     # components
-    src/comp/coord/direction.hpp
-    src/comp/coord/origin.hpp
-    src/comp/coord/position.hpp
-    src/comp/coord/rotation.hpp
-    src/comp/coord/scale.hpp
-    src/comp/move.hpp
-    src/comp/render.hpp
-    src/comp/tags.hpp
-
     # systems
-    src/sys/control.hpp
-    src/sys/control.cpp
-    src/sys/move.hpp
-    src/sys/move.cpp
-    src/sys/render.hpp
-    src/sys/render.cpp
-
     # core
-    src/core/consts.hpp
-    src/core/app.hpp
-    src/core/app.cpp
-    src/core/game.hpp
-    src/core/game.cpp
-    src/core/world.hpp
-    src/core/world.cpp
-
     # utils
-    src/utils/dir_to_pos.hpp
-    src/utils/dir_to_pos.cpp
-    src/utils/rng.hpp
 )
 
 target_include_directories(${PROJECT_NAME}

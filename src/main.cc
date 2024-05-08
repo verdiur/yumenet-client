@@ -16,15 +16,14 @@
 */
 
 #include <raylib.h>
-#include <core/app.hh>
 
 
 int main(void)
 {
-    int sw = 640+101;
-    int sh = 480+101;
-    int fps = 60;
+    // int sw = 640+101;
+    // int sh = 480+101;
+    // int fps = 60;
 
-    App app(fps, sw, sh);
-    app.run();
+    // App app(fps, sw, sh);
+    // app.run();
 }
