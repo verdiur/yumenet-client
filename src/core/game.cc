@@ -23,10 +23,11 @@ RenderTexture &Game::getTarget() {
 }
 
 
-void Game::placeholderRender()
-{
+void Game::placeholderRender() {
     BeginTextureMode(target);
-    ClearBackground(BLACK);
-    DrawText("pee pee poo poo", 10, 10, 10, WHITE);
+
+        ClearBackground(BLACK);
+        DrawText("placeholder", 10, 10, 10, WHITE);
+
     EndTextureMode();
 }

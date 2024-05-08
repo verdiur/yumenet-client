@@ -1,3 +1,4 @@
+#include <algorithm>
 #include <raylib.h>
 
 #include <core/app.hh>
@@ -13,7 +14,7 @@ App::App(const char *window_title_, int window_width_, int window_height_, int w
 
 
 /************************************************************************************************** 
- * PRIVATE UTILS 
+ * PRIVATE METHODS
 */
 
 
@@ -35,8 +36,22 @@ void App::drawGame(float scale)
 }
 
 
+int App::calcGameScaleFactor()
+{
+    int width_ratio = window_width / game->getTarget().texture.width;
+    int height_ratio = window_height / game->getTarget().texture.height;
+    return std::min(width_ratio, height_ratio);
+}
+
+
+void App::updateWindowDimensions() {
+    window_width = GetScreenWidth();
+    window_height = GetScreenHeight();
+}
+
+
 /************************************************************************************************** 
- * METHODS 
+ * PUBLIC METHODS 
 */
 
 
@@ -45,25 +60,32 @@ void App::run()
     /* INIT */
 
     InitWindow(window_width, window_height, "yumenet");
+    SetWindowMinSize(
+        game->getTarget().texture.width, 
+        game->getTarget().texture.height
+    );
+    SetWindowMaxSize(
+        GetMonitorWidth(GetCurrentMonitor()), 
+        GetMonitorHeight(GetCurrentMonitor())
+    );
     SetTargetFPS(window_fps);
-
     game->loadGame();
 
     /* GAME LOOP */
 
     while (!WindowShouldClose())
     {
-        // update game
-        // TODO:
+        // update
+        // TODO: game update
+        updateWindowDimensions();
         
-        // render game on target
+        // render on target
         game->placeholderRender();
 
         // draw on window
         BeginDrawing();
             ClearBackground(BLACK);
-            drawGame(1);
-            DrawFPS(10, 10);
+            drawGame(calcGameScaleFactor());
         EndDrawing();
     }
 

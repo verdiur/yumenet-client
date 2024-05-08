@@ -1,5 +1,4 @@
 #pragma once
-
 #include <raylib.h>
 
 
@@ -25,7 +24,7 @@ public:
     /// @brief Load game.
     void loadGame();
 
-    /// @brief Unload game.
+    /// @brief Unload all assets loaded in App::loadGame().
     void unloadGame();
 
     /// @brief Get the instance's render target.
