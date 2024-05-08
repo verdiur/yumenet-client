@@ -9,10 +9,12 @@ add_subdirectory(libs/entt)
 add_executable(${PROJECT_NAME}
     # main
     src/main.cc
+    # core
+    src/core/app.cc
+    src/core/game.cc
+    # utils
     # components
     # systems
-    # core
-    # utils
 )
 
 target_include_directories(${PROJECT_NAME}
