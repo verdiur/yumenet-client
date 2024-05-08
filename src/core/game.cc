@@ -18,7 +18,7 @@
 #include <cassert>
 #include <raylib.h>
 
-#include <core/game.hpp>
+#include <core/game.hh>
 
 
 Game::Game(int width, int height):

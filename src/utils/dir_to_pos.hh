@@ -16,19 +16,14 @@
 */
 
 #pragma once
-#include <entt/entt.hpp>
+#include <raylib.h>
 
-#include <utils/rng.hpp>
-#include <utils/dir_to_pos.hpp>
-
-#include <comp/coord/position.hpp>
-#include <comp/coord/direction.hpp>
-#include <comp/move.hpp>
-#include <comp/tags.hpp>
-
-#include <core/consts.hpp>
+#include <comp/coord/direction.hh>
 
 
-/// @brief Move all Npcs and update state for 1 frame. 
-/// @param reg Entity registry.
-void moveCharacter(entt::registry &reg);
+/// @brief Convert a CharacterDirection enum to a destination tile vector relative to 
+/// @brief an initial tile vector.
+/// @param from Initial tile vector.
+/// @param dir Direction the character is pointing to.
+/// @return Destination tile vector.
+Vector2 characterDirToPos(Vector2 from, CharacterDirection::D dir);

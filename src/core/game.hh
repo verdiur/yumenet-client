@@ -16,29 +16,46 @@
 */
 
 #pragma once
-#include <string>
+#include <deque>
+#include <raylib.h>
 
-#include <entt/entt.hpp>
+#include <core/world.hh>
 
 
-class World
+/// @brief Game class. Renders on a texture that can then be scaled accordingly on the window.
+class Game
 {
 private:
+    
 
-    std::string m_name;
-    std::string m_author;
-    int m_chunk_width;              // the width of a chunk is 40 tiles
-    int m_chunk_height;             // the height of a chunk is 30 tiles
-    entt::registry m_reg;
+    const int m_width;
+    const int m_height;
+    RenderTexture m_target;             // Target texture
+    Rectangle m_game_rec;               // Source rectangle
+
+    enum State {
+        TITLE,
+        OPTIONS,
+        PLAYING,
+        MENU,
+        EFFECTS,
+    } m_state;
+
 
 public:
 
-    
-    World(std::string name, std::string author, int chunk_width, int chunk_height);
-    World (World &world);
-    ~World();
 
-    entt::registry &getRegistry();
+    Game(int width = 640, int height = 480);
+    ~Game();
+
+
+    int getWidth();
+    int getWidth() const;
+    int getHeight();
+    int getHeight() const;
+    RenderTexture getTarget();
+    Rectangle getRec();
+
 
     void update();
     void render();

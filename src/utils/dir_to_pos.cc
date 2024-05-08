@@ -17,9 +17,9 @@
 
 #include <raylib.h>
 
-#include <comp/coord/direction.hpp>
-#include <core/consts.hpp>
-#include <utils/dir_to_pos.hpp>
+#include <comp/coord/direction.hh>
+#include <core/consts.hh>
+#include <utils/dir_to_pos.hh>
 
 
 Vector2 characterDirToPos(Vector2 from, CharacterDirection::D dir)

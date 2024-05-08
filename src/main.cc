@@ -15,20 +15,16 @@
  * along with yumenet. If not, see <https://www.gnu.org/licenses/>.
 */
 
-#pragma once
-#include <entt/entt.hpp>
-
-#include <comp/coord/position.hpp>
-#include <comp/coord/direction.hpp>
-#include <comp/move.hpp>
+#include <raylib.h>
+#include <core/app.hh>
 
 
-/// @brief control regular NPCs. Any other NPC that doesn't have fully random behavior
-/// @brief must be controlled through another system.
-/// @param reg Entity registry
-void controlPassiveNpcMove(entt::registry &reg);
+int main(void)
+{
+    int sw = 640+101;
+    int sh = 480+101;
+    int fps = 60;
 
-
-/// @brief control Toriningen.
-/// @param reg Entity registry
-void controlToriningen(entt::registry &reg);
+    App app(fps, sw, sh);
+    app.run();
+}

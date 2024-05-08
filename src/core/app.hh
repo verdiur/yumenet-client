@@ -18,7 +18,7 @@
 #pragma once
 #include <raylib.h>
 
-#include <core/game.hpp>
+#include <core/game.hh>
 
 
 /// @brief The actual app container for the `Game` instance.

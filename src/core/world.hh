@@ -15,49 +15,30 @@
  * along with yumenet. If not, see <https://www.gnu.org/licenses/>.
 */
 
+#pragma once
+#include <string>
+
 #include <entt/entt.hpp>
 
-#include <core/consts.hpp>
-#include <core/world.hpp>
 
-#include <sys/control.hpp>
-#include <sys/move.hpp>
-
-
-World::World(std::string name, std::string author, int chunk_width, int chunk_height):
-    m_name(name),
-    m_author(author),
-    m_chunk_width(chunk_width),
-    m_chunk_height(chunk_height),
-    m_reg()
-{}
-
-
-World::World(World &world)
+class World
 {
-    // TODO:
-}
+private:
 
+    std::string m_name;
+    std::string m_author;
+    int m_chunk_width;              // the width of a chunk is 40 tiles
+    int m_chunk_height;             // the height of a chunk is 30 tiles
+    entt::registry m_reg;
 
-World::~World()
-{
-    m_reg.clear();
-}
+public:
 
+    World(std::string name, std::string author, int chunk_width, int chunk_height);
+    World (World &world);
+    ~World();
 
-void World::update()
-{
-    // TODO:
+    entt::registry &getRegistry();
 
-    // control
-    controlPassiveNpcMove(m_reg);
-
-    // perform
-    moveCharacter(m_reg);
-}
-
-
-void World::render()
-{
-    // TODO:
-}
+    void update();
+    void render();
+};

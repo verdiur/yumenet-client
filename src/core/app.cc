@@ -18,8 +18,8 @@
 #include <cmath>
 #include <raylib.h>
 
-#include <core/app.hpp>
-#include <core/game.hpp>
+#include <core/app.hh>
+#include <core/game.hh>
 
 
 App::App(int fps, int window_width, int window_height, int game_width, int game_height):

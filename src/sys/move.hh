@@ -15,16 +15,20 @@
  * along with yumenet. If not, see <https://www.gnu.org/licenses/>.
 */
 
-#include <raylib.h>
-#include <core/app.hpp>
+#pragma once
+#include <entt/entt.hpp>
+
+#include <utils/rng.hh>
+#include <utils/dir_to_pos.hh>
+
+#include <comp/coord/position.hh>
+#include <comp/coord/direction.hh>
+#include <comp/move.hh>
+#include <comp/tags.hh>
+
+#include <core/consts.hh>
 
 
-int main(void)
-{
-    int sw = 640+101;
-    int sh = 480+101;
-    int fps = 60;
-
-    App app(fps, sw, sh);
-    app.run();
-}
+/// @brief Move all Npcs and update state for 1 frame. 
+/// @param reg Entity registry.
+void moveCharacter(entt::registry &reg);

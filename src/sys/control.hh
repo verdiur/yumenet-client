@@ -16,14 +16,14 @@
 */
 
 #pragma once
-#include <raylib.h>
+#include <entt/entt.hpp>
 
-#include <comp/coord/direction.hpp>
+#include <comp/coord/position.hh>
+#include <comp/coord/direction.hh>
+#include <comp/move.hh>
 
 
-/// @brief Convert a CharacterDirection enum to a destination tile vector relative to 
-/// @brief an initial tile vector.
-/// @param from Initial tile vector.
-/// @param dir Direction the character is pointing to.
-/// @return Destination tile vector.
-Vector2 characterDirToPos(Vector2 from, CharacterDirection::D dir);
+/// @brief control regular NPCs. Any other NPC that doesn't have fully random behavior
+/// @brief must be controlled through another system.
+/// @param reg Entity registry
+void controlPassiveNpcMove(entt::registry &reg);

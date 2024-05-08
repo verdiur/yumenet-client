@@ -19,13 +19,13 @@
 #include <raylib.h>
 #include <raymath.h>
 
-#include <comp/coord/position.hpp>
-#include <comp/move.hpp>
-#include <comp/tags.hpp>
+#include <comp/coord/position.hh>
+#include <comp/move.hh>
+#include <comp/tags.hh>
 
-#include <core/consts.hpp>
+#include <core/consts.hh>
 
-#include <sys/move.hpp>
+#include <sys/move.hh>
 
 
 void moveCharacter(entt::registry &reg)

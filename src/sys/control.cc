@@ -17,17 +17,17 @@
 
 #include <entt/entt.hpp>
 
-#include <utils/rng.hpp>
-#include <utils/dir_to_pos.hpp>
+#include <utils/rng.hh>
+#include <utils/dir_to_pos.hh>
 
-#include <comp/coord/position.hpp>
-#include <comp/coord/direction.hpp>
-#include <comp/move.hpp>
-#include <comp/tags.hpp>
+#include <comp/coord/position.hh>
+#include <comp/coord/direction.hh>
+#include <comp/move.hh>
+#include <comp/tags.hh>
 
-#include <core/consts.hpp>
+#include <core/consts.hh>
 
-#include <sys/control.hpp>
+#include <sys/control.hh>
 
 
 void controlPassiveNpcMove(entt::registry &reg) 

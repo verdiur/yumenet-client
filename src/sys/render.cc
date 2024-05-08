@@ -18,16 +18,16 @@
 #include <raylib.h>
 #include <entt/entt.hpp>
 
-#include <comp/coord/origin.hpp>
-#include <comp/coord/position.hpp>
-#include <comp/coord/rotation.hpp>
-#include <comp/coord/scale.hpp>
-#include <comp/render.hpp>
-#include <comp/tags.hpp>
+#include <comp/coord/origin.hh>
+#include <comp/coord/position.hh>
+#include <comp/coord/rotation.hh>
+#include <comp/coord/scale.hh>
+#include <comp/render.hh>
+#include <comp/tags.hh>
 
-#include <core/consts.hpp>
+#include <core/consts.hh>
 
-#include <sys/render.hpp>
+#include <sys/render.hh>
 
 
 void renderTile(entt::registry &reg)
