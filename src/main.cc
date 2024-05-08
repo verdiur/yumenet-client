@@ -15,15 +15,15 @@
  * along with yumenet. If not, see <https://www.gnu.org/licenses/>.
 */
 
-#pragma once
 #include <raylib.h>
 
-#include <comp/coord/direction.hpp>
 
+int main(void)
+{
+    // int sw = 640+101;
+    // int sh = 480+101;
+    // int fps = 60;
 
-/// @brief Convert a CharacterDirection enum to a destination tile vector relative to 
-/// @brief an initial tile vector.
-/// @param from Initial tile vector.
-/// @param dir Direction the character is pointing to.
-/// @return Destination tile vector.
-Vector2 characterDirToPos(Vector2 from, CharacterDirection::D dir);
+    // App app(fps, sw, sh);
+    // app.run();
+}
