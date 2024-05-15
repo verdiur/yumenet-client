@@ -1,3 +1,4 @@
+#include <core/world.hh>
 #include <core/game.hh>
 
 
@@ -8,26 +9,24 @@ Game::Game(int width_, int height_):
 {}
 
 
-void Game::loadGame() {
-    target = LoadRenderTexture(width, height);
-}
-
-
-void Game::unloadGame() {
-    UnloadRenderTexture(target);
-}
-
-
 RenderTexture &Game::getTarget() {
     return target;
 }
 
 
-void Game::placeholderRender() {
+void Game::loadGameAssets() {
+    target = LoadRenderTexture(width, height);
+}
+
+
+void Game::unloadGameAssets() {
+    UnloadRenderTexture(target);
+}
+
+
+void Game::render()
+{
     BeginTextureMode(target);
-
         ClearBackground(BLACK);
-        DrawText("placeholder", 10, 10, 10, WHITE);
-
     EndTextureMode();
 }

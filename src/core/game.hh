@@ -1,5 +1,9 @@
 #pragma once
+#include <memory>
+#include <vector>
 #include <raylib.h>
+
+#include <core/world.hh>
 
 
 class Game
@@ -9,6 +13,7 @@ private:
     int width;
     int height;
     RenderTexture target;
+    std::vector<std::unique_ptr<World>> world_vec;
 
 public:
 
@@ -21,15 +26,16 @@ public:
     /// @brief Game instances cannot be copied. 
     Game(const Game&) = delete;
 
-    /// @brief Load game.
-    void loadGame();
-
-    /// @brief Unload all assets loaded in App::loadGame().
-    void unloadGame();
-
     /// @brief Get the instance's render target.
     /// @return Render target
     RenderTexture &getTarget();
 
-    void placeholderRender();
+    /// @brief Load game assets.
+    void loadGameAssets();
+
+    /// @brief Unload all assets loaded in App::loadGame().
+    void unloadGameAssets();
+
+    /// @brief Render the game instance on the `RenderTarget`.
+    void render();
 };
