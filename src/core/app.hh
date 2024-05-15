@@ -1,4 +1,5 @@
 #pragma once
+#include <memory>
 #include <string>
 
 #include <raylib.h>
@@ -15,7 +16,7 @@ private:
     int window_width;
     int window_height;
     int window_fps;
-    Game *game;
+    std::unique_ptr<Game> game;
 
 private:
 
@@ -37,10 +38,7 @@ public:
     /// @param window_height_ height of the window
     /// @param window_fps_ fps to target
     /// @param game_ pointer to `Game` instance
-    App(const char *window_title_,  int window_width_, int window_height_, int window_fps_, Game *game_);
-
-    /// @brief App instances cannot be copied.
-    App(const App&) = delete;
+    App(const char *window_title_,  int window_width_, int window_height_, int window_fps_);
 
     /// @brief Initializes, runs, unloads and closes the app.
     void run();

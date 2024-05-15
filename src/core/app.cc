@@ -1,15 +1,16 @@
 #include <algorithm>
 #include <raylib.h>
 
+#include <utils/consts.hh>
 #include <core/app.hh>
 
 
-App::App(const char *window_title_, int window_width_, int window_height_, int window_fps_, Game *game_):
+App::App(const char *window_title_, int window_width_, int window_height_, int window_fps_):
     window_title(window_title_),
     window_width(window_width_),
     window_height(window_height_),
     window_fps(window_fps_),
-    game(game_)
+    game(std::make_unique<Game>(GAME_WIDTH, GAME_HEIGHT))
 {}
 
 
@@ -20,16 +21,12 @@ App::App(const char *window_title_, int window_width_, int window_height_, int w
 
 void App::drawGame(float scale)
 {
-    float game_width = (float) game->getTarget().texture.width;
-    float game_height = (float) game->getTarget().texture.height;
-
-    Rectangle src = { 0, 0, game_width, -game_height};
-
+    Rectangle src = { 0, 0, GAME_WIDTH, -GAME_HEIGHT };
     Rectangle dst = {
-        (float) ((int) (window_width - game_width * scale) / 2),
-        (float) ((int) (window_height - game_height * scale) / 2),
-        game_width * scale,
-        game_height * scale
+        (float) ((int) (window_width - GAME_WIDTH * scale) / 2),
+        (float) ((int) (window_height - GAME_HEIGHT * scale) / 2),
+        GAME_WIDTH * scale,
+        GAME_HEIGHT * scale
     };
     
     DrawTexturePro(game->getTarget().texture, src, dst, {}, 0, WHITE);
@@ -38,8 +35,8 @@ void App::drawGame(float scale)
 
 int App::calcGameScaleFactor()
 {
-    int width_ratio = window_width / game->getTarget().texture.width;
-    int height_ratio = window_height / game->getTarget().texture.height;
+    int width_ratio = window_width / GAME_WIDTH;
+    int height_ratio = window_height / GAME_HEIGHT;
     return std::min(width_ratio, height_ratio);
 }
 
@@ -61,15 +58,17 @@ void App::run()
 
     InitWindow(window_width, window_height, "yumenet");
     SetWindowMinSize(
-        game->getTarget().texture.width, 
-        game->getTarget().texture.height
+        GAME_WIDTH, 
+        GAME_HEIGHT
     );
     SetWindowMaxSize(
         GetMonitorWidth(GetCurrentMonitor()), 
         GetMonitorHeight(GetCurrentMonitor())
     );
     SetTargetFPS(window_fps);
-    game->loadGame();
+
+    // load 
+    game->loadGameTarget();
 
     /* GAME LOOP */
 
@@ -77,10 +76,9 @@ void App::run()
     {
         // update
         // TODO: game update
-        updateWindowDimensions();
         
         // render on target
-        game->placeholderRender();
+        game->render();
 
         // draw on window
         BeginDrawing();
@@ -91,6 +89,6 @@ void App::run()
 
     /* DE-INIT */
 
-    game->unloadGame();
+    game->unloadGameTarget();
     CloseWindow();
 }

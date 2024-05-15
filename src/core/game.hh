@@ -23,18 +23,15 @@ public:
     /// @param height_ 
     Game(int width_, int height_);
 
-    /// @brief Game instances cannot be copied. 
-    Game(const Game&) = delete;
-
     /// @brief Get the instance's render target.
     /// @return Render target
     RenderTexture &getTarget();
 
-    /// @brief Load game assets.
-    void loadGameAssets();
+    /// @brief Load game target.
+    void loadGameTarget();
 
-    /// @brief Unload all assets loaded in App::loadGame().
-    void unloadGameAssets();
+    /// @brief Unload game target.
+    void unloadGameTarget();
 
     /// @brief Render the game instance on the `RenderTarget`.
     void render();

@@ -1,3 +1,5 @@
+#include <memory>
+
 #include <core/world.hh>
 #include <core/game.hh>
 
@@ -14,12 +16,12 @@ RenderTexture &Game::getTarget() {
 }
 
 
-void Game::loadGameAssets() {
+void Game::loadGameTarget() {
     target = LoadRenderTexture(width, height);
 }
 
 
-void Game::unloadGameAssets() {
+void Game::unloadGameTarget() {
     UnloadRenderTexture(target);
 }
 
