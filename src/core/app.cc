@@ -68,7 +68,7 @@ void App::run()
     SetTargetFPS(window_fps);
 
     // load 
-    game->loadGameTarget();
+    game->loadTarget();
 
     /* GAME LOOP */
 
@@ -89,6 +89,6 @@ void App::run()
 
     /* DE-INIT */
 
-    game->unloadGameTarget();
+    game->unloadTarget();
     CloseWindow();
 }

@@ -28,10 +28,10 @@ public:
     RenderTexture &getTarget();
 
     /// @brief Load game target.
-    void loadGameTarget();
+    void loadTarget();
 
     /// @brief Unload game target.
-    void unloadGameTarget();
+    void unloadTarget();
 
     /// @brief Render the game instance on the `RenderTarget`.
     void render();

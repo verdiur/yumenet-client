@@ -16,12 +16,12 @@ RenderTexture &Game::getTarget() {
 }
 
 
-void Game::loadGameTarget() {
+void Game::loadTarget() {
     target = LoadRenderTexture(width, height);
 }
 
 
-void Game::unloadGameTarget() {
+void Game::unloadTarget() {
     UnloadRenderTexture(target);
 }
 
