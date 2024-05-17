@@ -21,8 +21,8 @@
 
 int main(void)
 {
-    int sw = 640*2+101;
-    int sh = 480*2+101;
+    int sw = 640*2;
+    int sh = 480*2;
     int fps = 60;
 
     App app("yumenet", sw, sh, fps);

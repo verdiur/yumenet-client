@@ -12,6 +12,7 @@ add_executable(${PROJECT_NAME}
     # core
     src/core/app.cc
     src/core/game.cc
+    src/core/world.cc
     # utils
     # components
     # systems
