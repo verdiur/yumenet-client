@@ -21,14 +21,14 @@ private:
 private:
 
     /// @brief Utility function that draws the game on the window.
-    void drawGame(float scale);
+    void draw_game(float scale);
 
     /// @brief Calculate game scale factor.
     /// @return Factor to scale game render target
-    int calcGameScaleFactor();
+    int calc_game_scale_factor();
 
     /// @brief Update window dimensions. Useful in case of window resizing.
-    void updateWindowDimensions();
+    void update_window_dimensions();
 
 public:
 

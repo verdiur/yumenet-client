@@ -19,7 +19,7 @@ App::App(const char *window_title, int window_width, int window_height, int wind
 */
 
 
-void App::drawGame(float scale) {
+void App::draw_game(float scale) {
     Rectangle src = { 0, 0, GAME_TARGET_WIDTH, -GAME_TARGET_HEIGHT };
     Rectangle dst = {
         (float) ((int) (window_width_ - GAME_TARGET_WIDTH * scale) / 2),
@@ -27,18 +27,18 @@ void App::drawGame(float scale) {
         GAME_TARGET_WIDTH * scale,
         GAME_TARGET_HEIGHT * scale
     };
-    DrawTexturePro(game_->getTarget().texture, src, dst, {}, 0, WHITE);
+    DrawTexturePro(game_->get_target().texture, src, dst, {}, 0, WHITE);
 }
 
 
-int App::calcGameScaleFactor() {
+int App::calc_game_scale_factor() {
     int width_ratio = window_width_ / GAME_TARGET_WIDTH;
     int height_ratio = window_height_ / GAME_TARGET_HEIGHT;
     return std::min(width_ratio, height_ratio);
 }
 
 
-void App::updateWindowDimensions() {
+void App::update_window_dimensions() {
     window_width_ = GetScreenWidth();
     window_height_ = GetScreenHeight();
 }
@@ -65,7 +65,7 @@ void App::run()
     SetTargetFPS(window_fps_);
 
     // load 
-    game_->loadTarget();
+    game_->load_target();
 
     /* GAME LOOP */
 
@@ -80,12 +80,12 @@ void App::run()
         // draw on window
         BeginDrawing();
             ClearBackground(BLACK);
-            drawGame(calcGameScaleFactor());
+            draw_game(calc_game_scale_factor());
         EndDrawing();
     }
 
     /* DE-INIT */
 
-    game_->unloadTarget();
+    game_->unload_target();
     CloseWindow();
 }
