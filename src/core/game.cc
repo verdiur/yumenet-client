@@ -26,7 +26,8 @@ void Game::unload_target() {
 }
 
 
-void Game::render() {
+void Game::render()
+{
     BeginTextureMode(target_);
         ClearBackground(BLACK);
     EndTextureMode();
