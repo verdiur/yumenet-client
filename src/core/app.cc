@@ -18,7 +18,6 @@ App::App(const char *window_title, int window_width, int window_height, int wind
  * PRIVATE METHODS
 */
 
-
 void App::draw_game(float scale)
 {
     Rectangle src = { 0, 0, GAME_TARGET_WIDTH, -GAME_TARGET_HEIGHT };
@@ -48,8 +47,8 @@ void App::update_window_dimensions()
 
 
 /**************************************************************************************************
- * PUBLIC METHODS */
-
+ * PUBLIC METHODS
+*/
 
 void App::run()
 {

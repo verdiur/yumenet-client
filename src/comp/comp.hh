@@ -12,7 +12,6 @@
  * TAGS
 */
 
-
 struct Player {};
 struct Chaser {};
 
@@ -20,7 +19,6 @@ struct Chaser {};
 /**************************************************************************************************
  * TRANSFORM
 */
-
 
 struct TilePos  {   float x;    float y;    };
 struct PixelPos {   float x;    float y;    };
@@ -32,7 +30,6 @@ struct Scale    {   float amt;  };
 /**************************************************************************************************
  * MOVEMENT
 */
-
 
 struct CanMove      {   bool val;   };
 struct IsMoving     {   bool val;   };
@@ -56,7 +53,6 @@ struct IsDead   {   bool val;   };
 /**************************************************************************************************
  * DRAW
 */
-
 
 struct DebugRec     {   float width;    float height;   };
 struct DebugColor   {   Color color;    };
