@@ -26,9 +26,16 @@ void Game::unload_target() {
 }
 
 
+void Game::load_debug_world() {
+    world_vec_.push_back(std::make_unique<World>(1, 1));
+    world_vec_[0]->debug_load();
+}
+
+
 void Game::render()
 {
     BeginTextureMode(target_);
         ClearBackground(BLACK);
+        world_vec_[0]->debug_draw();
     EndTextureMode();
 }

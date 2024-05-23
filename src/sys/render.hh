@@ -3,4 +3,4 @@
 #include <raylib.h>
 
 
-void draw_player(entt::registry &reg, RenderTexture &target);
+void debug_draw_npc(entt::registry &reg);

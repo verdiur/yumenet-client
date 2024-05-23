@@ -67,6 +67,7 @@ void App::run()
 
     // load 
     game_->load_target();
+    game_->load_debug_world();      /// TODO: remove
 
     /* GAME LOOP */
 

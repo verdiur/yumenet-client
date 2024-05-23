@@ -33,6 +33,9 @@ public:
     /// @brief Unload game target.
     void unload_target();
 
+    /// TODO: remove
+    void load_debug_world();
+
     /// @brief Render the game instance on the `RenderTarget`.
     void render();
 };

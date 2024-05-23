@@ -12,6 +12,9 @@ inline const float TILE_SIZE = 16;
 /// @brief Tile texture size in pixels. The original Yume Nikki draws textures at twice their size.
 inline const float TILE_TEXTURE_SIZE = TILE_SIZE / 2;
 
+/// @brief NPC size in pixels.
+inline const float NPC_SIZE = TILE_SIZE * 2;
+
 /// @brief World chunk width in tiles.
 /// @see `World.hh`
 inline const int WORLD_CHUNK_WIDTH = GAME_TARGET_WIDTH / TILE_SIZE;
