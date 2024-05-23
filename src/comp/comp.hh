@@ -58,5 +58,5 @@ struct IsDead   {   bool val;   };
 */
 
 
-struct DebugRec     {   Rectangle rec;  };
+struct DebugRec     {   float width;    float height;   };
 struct DebugColor   {   Color color;    };

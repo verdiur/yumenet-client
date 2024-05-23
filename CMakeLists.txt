@@ -16,6 +16,8 @@ add_executable(${PROJECT_NAME}
     # utils
     # components
     # systems
+    src/sys/create.cc
+    src/sys/render.cc
 )
 
 target_include_directories(${PROJECT_NAME}
