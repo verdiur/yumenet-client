@@ -20,11 +20,11 @@ public:
     /// @brief Instance destructor.
     ~World();
 
-    /// @brief  Load debug sprites and stuff...
+    /// @brief Load debug sprites and stuff...
     /// TODO: remove
     void debug_load();
 
-    /// @brief  Draw debug sprites and stuff...
+    /// @brief Draw entities bounding boxes and origin as well as important info
     /// TODO: remove
     void debug_draw();
 

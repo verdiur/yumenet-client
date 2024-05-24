@@ -15,6 +15,8 @@ private:
     RenderTexture target_;
     std::vector<std::unique_ptr<World>> world_vec_;
 
+    bool debug_flag_;
+
 public:
 
     /// @brief Instance constructor. Does not initialize the render target;
@@ -26,6 +28,12 @@ public:
     /// @brief Get the instance's render target.
     /// @return Render target
     RenderTexture &get_target();
+
+    /// @brief get the instance's debug flag.
+    bool get_debug_flag() const;
+
+    /// @brief set the instance's debug flag.
+    void set_debug_flag(bool val);
 
     /// @brief Load game target.
     void load_target();

@@ -18,6 +18,8 @@ private:
     int window_fps_;
     std::unique_ptr<Game> game_;
 
+    bool flag_debug_;
+
 private:
 
     /// @brief Utility function that draws the game on the window.

@@ -54,6 +54,10 @@ void App::run()
 {
     /* INIT */
 
+    // set flags
+    flag_debug_ = true;
+
+    // init window
     InitWindow(window_width_, window_height_, "yumenet");
     SetWindowMinSize(
         GAME_TARGET_WIDTH, 
@@ -64,10 +68,14 @@ void App::run()
         GetMonitorHeight(GetCurrentMonitor())
     );
     SetTargetFPS(window_fps_);
-
-    // load 
+    
+    // load game
     game_->load_target();
-    game_->load_debug_world();      /// TODO: remove
+    
+    // debug elements
+    if (flag_debug_) {
+        game_->load_debug_world();
+    }
 
     /* GAME LOOP */
 
@@ -83,6 +91,11 @@ void App::run()
         BeginDrawing();
             ClearBackground(BLACK);
             draw_game(calc_game_scale_factor());
+
+            // debug elements
+            if (flag_debug_) {
+                DrawFPS(10, 10);
+            }
         EndDrawing();
     }
 
