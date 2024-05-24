@@ -26,5 +26,5 @@ int main(void)
     int fps = 60;
 
     App app("yumenet", sw, sh, fps);
-    app.run();
+    app.run("../config/");
 }
