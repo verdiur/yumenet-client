@@ -1,5 +1,12 @@
 #pragma once
 
+
+/**
+ * consts.hh
+ * This file includes all game constants.
+*/
+
+
 /// @brief Game target width in px.
 inline const int GAME_TARGET_WIDTH = 640;
 

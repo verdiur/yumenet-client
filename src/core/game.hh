@@ -29,11 +29,7 @@ public:
     /// @return Render target
     RenderTexture &get_target();
 
-    /// @brief get the instance's debug flag.
-    bool get_debug_flag() const;
-
-    /// @brief set the instance's debug flag.
-    void set_debug_flag(bool val);
+    std::unique_ptr<World> &get_active_world();
 
     /// @brief Load game target.
     void load_target();
@@ -43,6 +39,12 @@ public:
 
     /// TODO: remove
     void load_debug_world();
+
+    /// @brief Input handling method.
+    void input();
+
+    /// @brief Update method. Simply calls active `World::update()` method.
+    void update();
 
     /// @brief Render the game instance on the `RenderTarget`.
     void render();

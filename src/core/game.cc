@@ -16,6 +16,11 @@ RenderTexture &Game::get_target() {
 }
 
 
+std::unique_ptr<World> &Game::get_active_world() {
+    return world_vec_[0];
+}
+
+
 void Game::load_target() {
     target_ = LoadRenderTexture(width_, height_);
 }
@@ -29,6 +34,15 @@ void Game::unload_target() {
 void Game::load_debug_world() {
     world_vec_.push_back(std::make_unique<World>(1, 1));
     world_vec_[0]->debug_load();
+}
+
+
+void Game::input() {}
+
+
+void Game::update()
+{
+    world_vec_[0]->update();
 }
 
 

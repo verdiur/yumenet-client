@@ -17,6 +17,16 @@ World::~World()
 {}
 
 
+void World::update() {
+    
+}
+
+
+void World::render() {
+    debug_draw();
+}
+
+
 void World::debug_load() {
     create_player(reg_, 10, 10);
 }
@@ -24,9 +34,4 @@ void World::debug_load() {
 
 void World::debug_draw() {
     debug_draw_npc(reg_);
-}
-
-
-void World::render() {
-    debug_draw();
 }
