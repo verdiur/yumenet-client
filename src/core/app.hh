@@ -3,6 +3,8 @@
 #include <string>
 
 #include <raylib.h>
+#include <ini/ini.h>
+
 #include <core/game.hh>
 
 
@@ -17,8 +19,6 @@ private:
     int window_height_;
     int window_fps_;
     std::unique_ptr<Game> game_;
-
-    bool flag_debug_;
 
 private:
 
@@ -42,5 +42,6 @@ public:
     App(const char *window_title,  int window_width, int window_height, int window_fps);
 
     /// @brief Initializes, runs, unloads and closes the app.
-    void run();
+    /// @param cfg_path path of the config directory. Must end with a slash.
+    void run(std::string cfg_path);
 };

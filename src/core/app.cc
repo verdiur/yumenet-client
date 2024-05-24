@@ -1,3 +1,5 @@
+#include <cassert>
+#include <iostream>
 #include <algorithm>
 #include <raylib.h>
 
@@ -50,14 +52,40 @@ void App::update_window_dimensions()
  * PUBLIC METHODS
 */
 
-void App::run()
+void App::run(std::string cfg_path)
 {
-    /* INIT */
+    assert(cfg_path != "");
+    assert(cfg_path.back() == '/');
 
-    // set flags
-    flag_debug_ = true;
+    /**********************************************************************************************
+     * INIT
+    */
 
-    // init window
+        /**
+         * Load config
+        */
+
+    // flags
+    bool cfg_flag_debug;
+    inih::INIReader cfg_flags(cfg_path + "flags.ini");
+    if (cfg_flags.ParseError() < 0)
+    {
+        // load default
+        std::cout 
+            << "[CONFIG WARNING] flags could not be loaded; default flags will be loaded" 
+            << std::endl;
+        cfg_flag_debug = false;
+    } 
+    else
+    {
+        // load from ini
+        cfg_flag_debug = cfg_flags.Get<bool>("flags", "debug");
+    }
+    
+        /**
+         * Init window
+        */
+        
     InitWindow(window_width_, window_height_, "yumenet");
     SetWindowMinSize(
         GAME_TARGET_WIDTH, 
@@ -69,31 +97,44 @@ void App::run()
     );
     SetTargetFPS(window_fps_);
     
-    // load game
+        /**
+         * Load game
+        */
+    
     game_->load_target();
     
-    // debug elements
-    if (flag_debug_) {
+        /**
+         * Load debug elements
+        */
+    
+    if (cfg_flag_debug) {
         game_->load_debug_world();
     }
 
-    /* GAME LOOP */
+    /**********************************************************************************************
+     * GAME LOOP
+    */
 
     while (!WindowShouldClose())
     {
-        // update
-        // TODO: game update
+        // input TODO:
+        // update TODO:
         
-        // render on target
+            /**
+             * Render game on target
+            */
+           
         game_->render();
 
-        // draw on window
+            /**
+             * Draw on window
+            */
+
         BeginDrawing();
             ClearBackground(BLACK);
             draw_game(calc_game_scale_factor());
-
-            // debug elements
-            if (flag_debug_) {
+            if (cfg_flag_debug)
+            {
                 DrawFPS(10, 10);
             }
         EndDrawing();

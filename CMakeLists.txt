@@ -20,8 +20,9 @@ add_executable(${PROJECT_NAME}
     src/sys/render.cc
 )
 
-target_include_directories(${PROJECT_NAME}
-    PUBLIC src/
+target_include_directories(${PROJECT_NAME} PUBLIC
+    src/
+    libs/
 )
 
 target_link_libraries(${PROJECT_NAME} raylib)
