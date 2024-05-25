@@ -66,22 +66,26 @@ void App::run(std::string cfg_path)
         */
 
     // flags
-    bool cfg_flag_debug;
     inih::INIReader cfg_flags(cfg_path + "flags.ini");
-    if (cfg_flags.ParseError() < 0)
-    {
-        // load default
-        std::cout 
-            << "[CONFIG WARNING] flags could not be loaded; default flags will be loaded" 
-            << std::endl;
-        cfg_flag_debug = false;
-    } 
-    else
-    {
-        // load from ini
-        cfg_flag_debug = cfg_flags.Get<bool>("flags", "debug");
-    }
-    
+    bool cfg_flag_debug = cfg_flags.Get<bool>("flags", "debug");
+
+    // controls
+    // inih::INIReader cfg_controls(cfg_path + "controls.ini");
+    // std::vector<int> cfg_ctrl_right =       cfg_controls.GetVector<int>("game", "right");
+    // std::vector<int> cfg_ctrl_left =        cfg_controls.GetVector<int>("game", "left");
+    // std::vector<int> cfg_ctrl_down =        cfg_controls.GetVector<int>("game", "down");
+    // std::vector<int> cfg_ctrl_up =          cfg_controls.GetVector<int>("game", "up");
+    // std::vector<int> cfg_ctrl_menu =        cfg_controls.GetVector<int>("game", "menu");
+    // std::vector<int> cfg_ctrl_wake =        cfg_controls.GetVector<int>("game", "wake");
+    // std::vector<int> cfg_ctrl_exam =        cfg_controls.GetVector<int>("game", "exam");
+    // std::vector<int> cfg_ctrl_remove_effect = cfg_controls.GetVector<int>("game", "remove_effect");
+    // std::vector<int> cfg_ctrl_menu_right =  cfg_controls.GetVector<int>("menu", "menu_right");
+    // std::vector<int> cfg_ctrl_menu_left =   cfg_controls.GetVector<int>("menu", "menu_left");
+    // std::vector<int> cfg_ctrl_menu_down =   cfg_controls.GetVector<int>("menu", "menu_down");
+    // std::vector<int> cfg_ctrl_menu_up =     cfg_controls.GetVector<int>("menu", "menu_up");
+    // std::vector<int> cfg_ctrl_menu_select = cfg_controls.GetVector<int>("menu", "menu_select");
+    // std::vector<int> cfg_ctrl_menu_back =   cfg_controls.GetVector<int>("menu", "menu_back");
+
         /**
          * Init window
         */
@@ -117,17 +121,14 @@ void App::run(std::string cfg_path)
 
     while (!WindowShouldClose())
     {
-        // input TODO:
-        // update TODO:
-        
             /**
-             * Render game on target
+             * Update game
             */
-           
-        game_->render();
+
+        game_->update();
 
             /**
-             * Draw on window
+             * Draw
             */
 
         BeginDrawing();
@@ -135,12 +136,14 @@ void App::run(std::string cfg_path)
             draw_game(calc_game_scale_factor());
             if (cfg_flag_debug)
             {
-                DrawFPS(10, 10);
+                DrawFPS(4, 4);
             }
         EndDrawing();
     }
 
-    /* DE-INIT */
+    /**********************************************************************************************
+     * DEINIT
+    */
 
     game_->unload_target();
     CloseWindow();

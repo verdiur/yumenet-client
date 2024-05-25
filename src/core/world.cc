@@ -2,6 +2,7 @@
 
 #include <utils/consts.hh>
 #include <sys/create.hh>
+#include <sys/update.hh>
 #include <sys/render.hh>
 #include <core/world.hh>
 
@@ -17,8 +18,13 @@ World::~World()
 {}
 
 
+entt::registry &World::get_registry() {
+    return reg_;
+}
+
+
 void World::update() {
-    
+    move_characters(reg_);
 }
 
 
@@ -28,10 +34,10 @@ void World::render() {
 
 
 void World::debug_load() {
-    create_player(reg_, 10, 10);
+    create_player(reg_, Vector2{10, 10});
 }
 
 
 void World::debug_draw() {
-    debug_draw_npc(reg_);
+    debug_draw_characters(reg_);
 }

@@ -1,5 +1,7 @@
 #include <memory>
 
+#include <utils/types.hh>
+#include <sys/update.hh>
 #include <core/world.hh>
 #include <core/game.hh>
 
@@ -37,17 +39,39 @@ void Game::load_debug_world() {
 }
 
 
-void Game::input() {}
-
-
 void Game::update()
-{
+{   
+    /**
+     * Input phase
+    */
+
+    if (!is_player_moving(world_vec_[0]->get_registry()))
+    {
+        if (IsKeyDown(KeyboardKey::KEY_RIGHT)) {
+            init_move_player(world_vec_[0]->get_registry(), DirEnum::RIGHT);
+        } 
+        else if (IsKeyDown(KeyboardKey::KEY_LEFT)) {
+            init_move_player(world_vec_[0]->get_registry(), DirEnum::LEFT);
+        } 
+        else if (IsKeyDown(KeyboardKey::KEY_DOWN)) {
+            init_move_player(world_vec_[0]->get_registry(), DirEnum::DOWN);
+        } 
+        else if (IsKeyDown(KeyboardKey::KEY_UP)) {
+            init_move_player(world_vec_[0]->get_registry(), DirEnum::UP);
+        }
+    }
+        
+    /**
+     * Update phase
+     * Simply calls active `World::update()` method.
+    */
+
     world_vec_[0]->update();
-}
 
+    /**
+     * Render on target
+    */
 
-void Game::render()
-{
     BeginTextureMode(target_);
         ClearBackground(BLACK);
         world_vec_[0]->debug_draw();

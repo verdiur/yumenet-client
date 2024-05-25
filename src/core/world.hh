@@ -21,6 +21,8 @@ public:
     /// @brief Instance destructor.
     ~World();
 
+    entt::registry &get_registry();
+
     /// @brief Update method called by `Game` instance.
     void update();
 

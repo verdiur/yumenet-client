@@ -37,15 +37,9 @@ public:
     /// @brief Unload game target.
     void unload_target();
 
-    /// TODO: remove
+    /// Load a debug world into the instance.
     void load_debug_world();
 
-    /// @brief Input handling method.
-    void input();
-
-    /// @brief Update method. Simply calls active `World::update()` method.
+    /// @brief Input, Update and Render method.
     void update();
-
-    /// @brief Render the game instance on the `RenderTarget`.
-    void render();
 };

@@ -1,6 +1,8 @@
 #pragma once
 #include <raylib.h>
 
+#include <utils/types.hh>
+
 
 /**
  * comp.hh
@@ -20,14 +22,13 @@ struct Chaser {};
  * TRANSFORM
 */
 
-struct TilePos  {   float x;    float y;    };
-struct PixelPos {   float x;    float y;    };
-struct Origin   {   float x;    float y;    };
+struct TilePos  {   Vector2 pos;    };
+struct PixelPos {   Vector2 pos;    };
+struct Origin   {   Vector2 pos;    };
 struct Rotation {   float amt;  };
 struct Scale    {   float amt;  };
 
-
-
+struct Direction    {   DirEnum dir;    };
 
 /**************************************************************************************************
  * MOVEMENT
@@ -35,8 +36,8 @@ struct Scale    {   float amt;  };
 
 struct CanMove      {   bool val;   };
 struct IsMoving     {   bool val;   };
-struct FromTilePos  {   float x;    float y;    };
-struct ToTilePos    {   float x;    float y;    };
+struct FromTilePos  {   Vector2 pos;    };
+struct ToTilePos    {   Vector2 pos;    };
 
 /// @brief Movement progression component. `amt` should be between 0 and 1.
 struct MoveProgress {   float amt;  };

@@ -9,7 +9,7 @@
 
 
 /// @brief App container.
-/// @brief Pretty much contains everything.
+/// @brief Contains context for the app: config, 
 class App
 {
 private:
@@ -42,6 +42,6 @@ public:
     App(const char *window_title,  int window_width, int window_height, int window_fps);
 
     /// @brief Initializes, runs, unloads and closes the app.
-    /// @param cfg_path path of the config directory. Must end with a slash.
+    /// @param cfg_path config directory path. Must end with a slash.
     void run(std::string cfg_path);
 };
