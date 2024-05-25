@@ -14,7 +14,8 @@ bool is_player_moving(entt::registry &reg)
     auto view = reg.view<Player, IsMoving>();
     for (auto [ent, is_moving]: view.each())
     {
-        // kind of gross but it works sooo
+        // not scalable but it works for now,
+        // as long as only 1 player entity is present in the registry
         result = is_moving.val;
     }
     return result;

@@ -66,8 +66,8 @@ void App::run(std::string cfg_path)
         */
 
     // flags
-    inih::INIReader cfg_flags(cfg_path + "flags.ini");
-    bool cfg_flag_debug = cfg_flags.Get<bool>("flags", "debug");
+    inih::INIReader cfg_flags(cfg_path + "main.ini");
+    bool cfg_flag_debug = cfg_flags.Get<bool>("debug", "debug");
 
     // controls
     // inih::INIReader cfg_controls(cfg_path + "controls.ini");
@@ -99,7 +99,8 @@ void App::run(std::string cfg_path)
         GetMonitorWidth(GetCurrentMonitor()), 
         GetMonitorHeight(GetCurrentMonitor())
     );
-    SetTargetFPS(window_fps_);
+    SetWindowState(FLAG_VSYNC_HINT);
+    // SetTargetFPS(window_fps_);
     
         /**
          * Load game
