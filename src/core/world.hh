@@ -4,6 +4,7 @@
 
 /// @brief World class.
 /// @brief World size is determined by chunk amount in either direction.
+/// @note `World` only handles update and render. Input handling is instead managed by `Game`.
 class World
 {
 private:
@@ -20,14 +21,19 @@ public:
     /// @brief Instance destructor.
     ~World();
 
-    /// @brief  Load debug sprites and stuff...
+    entt::registry &get_registry();
+
+    /// @brief Update method called by `Game` instance.
+    void update();
+
+    /// @brief Render method called by `Game` instance.
+    void render();
+
+    /// @brief Load debug sprites and stuff...
     /// TODO: remove
     void debug_load();
 
-    /// @brief  Draw debug sprites and stuff...
+    /// @brief Draw entities bounding boxes and origin as well as important info
     /// TODO: remove
     void debug_draw();
-
-    /// @brief Render function called by `Game` instance.
-    void render();
 };

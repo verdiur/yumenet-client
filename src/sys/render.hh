@@ -2,5 +2,5 @@
 #include <entt/entt.hpp>
 #include <raylib.h>
 
-
-void debug_draw_npc(entt::registry &reg);
+/// @brief Draw debug view of characters.
+void debug_draw_characters(entt::registry &reg);

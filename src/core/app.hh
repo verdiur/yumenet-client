@@ -3,11 +3,13 @@
 #include <string>
 
 #include <raylib.h>
+#include <ini/ini.h>
+
 #include <core/game.hh>
 
 
 /// @brief App container.
-/// @brief Pretty much contains everything.
+/// @brief Contains context for the app: config, 
 class App
 {
 private:
@@ -40,5 +42,6 @@ public:
     App(const char *window_title,  int window_width, int window_height, int window_fps);
 
     /// @brief Initializes, runs, unloads and closes the app.
-    void run();
+    /// @param cfg_path config directory path. Must end with a slash.
+    void run(std::string cfg_path);
 };

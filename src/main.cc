@@ -21,10 +21,10 @@
 
 int main(void)
 {
-    int sw = 640*2;
-    int sh = 480*2;
+    int sw = 640;
+    int sh = 480;
     int fps = 60;
 
     App app("yumenet", sw, sh, fps);
-    app.run();
+    app.run("../config/");
 }
