@@ -11,14 +11,3 @@ YumeNet client. This project uses:
 > ```
 > $ git clone https://github.com/verdiur/yumenet-client --recursive
 > ```
-
-```mermaid
-graph LR;
-    g(Game);
-    a(App);
-    wv(WorldVec);
-    w(World);
-
-    a -->|calls render| g -->|calls render| wv -->|calls render| w;
-    g -->|draws & scales on| a;
-```
