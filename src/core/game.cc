@@ -5,6 +5,8 @@
 #include <core/world.hh>
 #include <core/game.hh>
 
+#include <sys/create.hh>
+
 
 Game::Game(int width, int height):
     width_(width),
@@ -59,6 +61,10 @@ void Game::update()
         else if (IsKeyDown(KeyboardKey::KEY_UP)) {
             init_move_player(world_vec_[0]->get_registry(), DirEnum::UP);
         }
+    }
+
+    if (IsKeyPressed(KeyboardKey::KEY_KP_1)) {
+        create_passive_npc(world_vec_[0]->get_registry(), {0, 0});
     }
         
     /**

@@ -30,5 +30,8 @@ inline const int WORLD_CHUNK_HEIGHT = GAME_TARGET_HEIGHT / TILE_SIZE;
 /// @brief DEBUG: Size of the origin circle
 inline const int DEBUG_ORIGIN_SIZE = 3;
 
-/// @brief DEBUG: Thickness of the line
+/// @brief DEBUG: Thickness of the lines
 inline const int DEBUG_LINE_THICK = 1;
+
+/// @brief DEBUG: Length of the direction line
+inline const float DEBUG_DIRECTION_LINE_LENGTH = 50;

@@ -3,7 +3,7 @@ YumeNet client. This project uses:
 
 - Raylib (5.0)
 - EnTT (3.12.2)
-- ini-cpp (latest)
+- mINI (0.9.15)
 
 > [!NOTE]
 > As of now, YumeNet is very far from a minimum viable product.

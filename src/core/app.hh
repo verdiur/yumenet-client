@@ -3,7 +3,7 @@
 #include <string>
 
 #include <raylib.h>
-#include <ini/ini.h>
+#include <json/json.hpp>
 
 #include <core/game.hh>
 

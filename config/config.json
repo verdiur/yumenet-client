@@ -1,0 +1,28 @@
+{
+    "window":
+    {
+        "vsync": true,
+        "borderless": false
+    },
+    "controls":
+    {
+        "right": [262],
+        "left": [263],
+        "down": [264],
+        "up": [265],
+        "menu": [256],
+        "wake": [57, 329],
+        "exam": [257],
+        "remove_effect": [53, 325],
+        "menu_right": [262],
+        "menu_left": [263],
+        "menu_down": [264],
+        "menu_up": [265],
+        "menu_select": [257],
+        "menu_back": [256]
+    },
+    "debug":
+    {
+        "debug": true
+    }
+}
