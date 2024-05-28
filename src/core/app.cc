@@ -1,10 +1,15 @@
 #include <cassert>
 #include <iostream>
 #include <algorithm>
+#include <fstream>
 #include <raylib.h>
+#include <json/json.hpp>
 
 #include <utils/consts.hh>
+#include <utils/stob.hh>
 #include <core/app.hh>
+
+using json = nlohmann::json;
 
 
 App::App(const char *window_title, int window_width, int window_height, int window_fps):
@@ -63,28 +68,10 @@ void App::run(std::string cfg_path)
 
         /**
          * Load config
-        */
-
-    // flags
-    inih::INIReader cfg_flags(cfg_path + "main.ini");
-    bool cfg_flag_debug = cfg_flags.Get<bool>("debug", "debug");
-
-    // controls
-    // inih::INIReader cfg_controls(cfg_path + "controls.ini");
-    // std::vector<int> cfg_ctrl_right =       cfg_controls.GetVector<int>("game", "right");
-    // std::vector<int> cfg_ctrl_left =        cfg_controls.GetVector<int>("game", "left");
-    // std::vector<int> cfg_ctrl_down =        cfg_controls.GetVector<int>("game", "down");
-    // std::vector<int> cfg_ctrl_up =          cfg_controls.GetVector<int>("game", "up");
-    // std::vector<int> cfg_ctrl_menu =        cfg_controls.GetVector<int>("game", "menu");
-    // std::vector<int> cfg_ctrl_wake =        cfg_controls.GetVector<int>("game", "wake");
-    // std::vector<int> cfg_ctrl_exam =        cfg_controls.GetVector<int>("game", "exam");
-    // std::vector<int> cfg_ctrl_remove_effect = cfg_controls.GetVector<int>("game", "remove_effect");
-    // std::vector<int> cfg_ctrl_menu_right =  cfg_controls.GetVector<int>("menu", "menu_right");
-    // std::vector<int> cfg_ctrl_menu_left =   cfg_controls.GetVector<int>("menu", "menu_left");
-    // std::vector<int> cfg_ctrl_menu_down =   cfg_controls.GetVector<int>("menu", "menu_down");
-    // std::vector<int> cfg_ctrl_menu_up =     cfg_controls.GetVector<int>("menu", "menu_up");
-    // std::vector<int> cfg_ctrl_menu_select = cfg_controls.GetVector<int>("menu", "menu_select");
-    // std::vector<int> cfg_ctrl_menu_back =   cfg_controls.GetVector<int>("menu", "menu_back");
+        */ 
+    
+    std::ifstream cfg_f(cfg_path + "config.json");
+    json cfg = json::parse(cfg_f);
 
         /**
          * Init window
@@ -99,8 +86,9 @@ void App::run(std::string cfg_path)
         GetMonitorWidth(GetCurrentMonitor()), 
         GetMonitorHeight(GetCurrentMonitor())
     );
-    SetWindowState(FLAG_VSYNC_HINT);
-    // SetTargetFPS(window_fps_);
+    if (cfg["window"]["vsync"])         SetWindowState(FLAG_VSYNC_HINT);
+    if (cfg["window"]["borderless"])    SetWindowState(FLAG_BORDERLESS_WINDOWED_MODE);
+    SetTargetFPS(window_fps_);
     
         /**
          * Load game
@@ -112,7 +100,7 @@ void App::run(std::string cfg_path)
          * Load debug elements
         */
     
-    if (cfg_flag_debug) {
+    if (cfg["debug"]["debug"]) {
         game_->load_debug_world();
     }
 
@@ -135,7 +123,7 @@ void App::run(std::string cfg_path)
         BeginDrawing();
             ClearBackground(BLACK);
             draw_game(calc_game_scale_factor());
-            if (cfg_flag_debug)
+            if (cfg["debug"]["debug"])
             {
                 DrawFPS(4, 4);
             }
