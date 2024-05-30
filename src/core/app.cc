@@ -6,7 +6,6 @@
 #include <json/json.hpp>
 
 #include <utils/consts.hh>
-#include <utils/stob.hh>
 #include <core/app.hh>
 
 using json = nlohmann::json;

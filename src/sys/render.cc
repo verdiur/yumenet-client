@@ -41,28 +41,16 @@ void debug_draw_characters(entt::registry &reg)
         Vector2 pt2 = {};
         switch (dir.dir) {
             case DirEnum::RIGHT:
-                pt2 = {
-                    pt1.x + DEBUG_DIRECTION_LINE_LENGTH,
-                    pt1.y
-                };
+                pt2 = { pt1.x + DEBUG_DIRECTION_LINE_LENGTH, pt1.y };
                 break;
             case DirEnum::LEFT:
-                pt2 = {
-                    pt1.x - DEBUG_DIRECTION_LINE_LENGTH,
-                    pt1.y
-                };
+                pt2 = { pt1.x - DEBUG_DIRECTION_LINE_LENGTH, pt1.y };
                 break;
             case DirEnum::DOWN:
-                pt2 = {
-                    pt1.x,
-                    pt1.y + DEBUG_DIRECTION_LINE_LENGTH
-                };
+                pt2 = { pt1.x, pt1.y + DEBUG_DIRECTION_LINE_LENGTH };
                 break;
             case DirEnum::UP:
-                pt2 = {
-                    pt1.x,
-                    pt1.y - DEBUG_DIRECTION_LINE_LENGTH
-                };
+                pt2 = { pt1.x, pt1.y - DEBUG_DIRECTION_LINE_LENGTH };
                 break;
             default:
                 pt2 = pt1;
