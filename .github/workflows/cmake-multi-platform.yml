@@ -52,7 +52,7 @@ jobs:
     # install raylib-required libraries on linux 
     - uses: awalsh128/cache-apt-pkgs-action@latest
       with:
-        packages: libasound2-dev libx11-dev libxrandr-dev libxi-dev libgl1-mesa-dev libglu1-mesa-dev libxcursor-dev libxinerama-dev libwayland-dev libxkbcommon-dev 
+        packages: xorg-dev libasound2-dev libx11-dev libxrandr-dev libxi-dev libgl1-mesa-dev libglu1-mesa-dev libxcursor-dev libxinerama-dev libwayland-dev libxkbcommon-dev 
         version: 1.0
       if: matrix.os == 'ubuntu-latest'
 
