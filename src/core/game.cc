@@ -1,4 +1,5 @@
 #include <memory>
+#include <iostream>
 
 #include <utils/types.hh>
 #include <sys/update.hh>
@@ -47,25 +48,7 @@ void Game::update()
      * Input phase
     */
 
-    if (!is_player_moving(world_vec_[0]->get_registry()))
-    {
-        if (IsKeyDown(KeyboardKey::KEY_RIGHT)) {
-            init_move_player(world_vec_[0]->get_registry(), DirEnum::RIGHT);
-        } 
-        else if (IsKeyDown(KeyboardKey::KEY_LEFT)) {
-            init_move_player(world_vec_[0]->get_registry(), DirEnum::LEFT);
-        } 
-        else if (IsKeyDown(KeyboardKey::KEY_DOWN)) {
-            init_move_player(world_vec_[0]->get_registry(), DirEnum::DOWN);
-        } 
-        else if (IsKeyDown(KeyboardKey::KEY_UP)) {
-            init_move_player(world_vec_[0]->get_registry(), DirEnum::UP);
-        }
-    }
-
-    if (IsKeyPressed(KeyboardKey::KEY_KP_1)) {
-        create_passive_npc(world_vec_[0]->get_registry(), {0, 0});
-    }
+    world_vec_[0]->input();
         
     /**
      * Update phase

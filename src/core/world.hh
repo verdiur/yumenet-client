@@ -9,19 +9,24 @@ class World
 {
 private:
     
-    int max_chunk_x_;
-    int max_chunk_y_;
+    int chunk_width_;
+    int chunk_height_;
     entt::registry reg_;
 
 public:
 
     /// @brief Instance constructor.
-    World(int max_chunk_x, int max_chunk_y);
+    World(int chunk_width, int chunk_height);
     
     /// @brief Instance destructor.
     ~World();
 
     entt::registry &get_registry();
+    int get_chunk_width() const;
+    int get_chunk_height() const;
+
+    /// @brief Input method called by `Game` instance
+    void input();
 
     /// @brief Update method called by `Game` instance.
     void update();
