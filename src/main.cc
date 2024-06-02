@@ -13,6 +13,9 @@
  * along with yumenet. If not, see <https://www.gnu.org/licenses/>.
 */
 
+#include <fstream>
+#include <iostream>
+#include <json/json.hpp>
 #include <raylib.h>
 
 #include <core/app.hh>
@@ -21,10 +24,40 @@
 
 int main(void)
 {
-    int sw = 640;
-    int sh = 480;
-    int fps = 60;
-
+    // load config
+    json cfg;
+    try {
+        std::ifstream cfg_f("../config/config.json");
+        cfg = json::parse(cfg_f);
+    }
+    catch (std::ifstream::failure &e) {
+        std::cout << "failed to open config file" << std::endl;
+        return 1;
+    }
+    catch (json::parse_error &e) {
+        std::cout << "failed to parse config file" << std::endl;
+        return 1;
+    }
+    
+    // read config
+    int sw, sh, fps;
+    try {
+        sw = cfg["window"]["width"];
+        sh = cfg["window"]["height"];
+        fps = cfg["window"]["fps"];
+    }
+    catch (json::type_error) {
+        std::cout << "failed to read config file: type error" << std::endl;
+        return 1;
+    }
+    catch (json::other_error) {
+        std::cout << "failed to read config file: unknown error" << std::endl;
+        return 1;
+    }
+    
+    // run app
     App app("yumenet", sw, sh, fps);
-    app.run("../config/");
+    app.run(cfg);
+
+    return 0;
 }

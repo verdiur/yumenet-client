@@ -45,16 +45,10 @@ void Game::load_debug_world() {
 void Game::update()
 {   
     /**
-     * Input phase
+     * Input + update
     */
 
     world_vec_[0]->input();
-        
-    /**
-     * Update phase
-     * Simply calls active `World::update()` method.
-    */
-
     world_vec_[0]->update();
 
     /**
