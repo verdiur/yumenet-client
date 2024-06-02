@@ -27,6 +27,6 @@ target_include_directories(${PROJECT_NAME} PUBLIC
     libs/
 )
 
-# target_link_options(${PROJECT_NAME} PRIVATE -static)
+target_link_options(${PROJECT_NAME} PRIVATE -static-libgcc -static-libstdc++)
 target_link_libraries(${PROJECT_NAME} raylib)
 target_link_libraries(${PROJECT_NAME} EnTT::EnTT)
