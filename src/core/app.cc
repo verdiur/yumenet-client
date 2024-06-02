@@ -1,7 +1,7 @@
 #include <cassert>
 #include <iostream>
 #include <algorithm>
-#include <fstream>
+
 #include <raylib.h>
 #include <json/json.hpp>
 
@@ -56,38 +56,36 @@ void App::update_window_dimensions()
  * PUBLIC METHODS
 */
 
-void App::run(std::string cfg_path)
+void App::run(json cfg)
 {
-    assert(cfg_path != "");
-    assert(cfg_path.back() == '/');
 
     /**********************************************************************************************
      * INIT
     */
 
         /**
-         * Load config
-        */ 
-    
-    std::ifstream cfg_f(cfg_path + "config.json");
-    json cfg = json::parse(cfg_f);
-
-        /**
          * Init window
         */
         
     InitWindow(window_width_, window_height_, "yumenet");
-    SetWindowMinSize(
-        GAME_TARGET_WIDTH, 
-        GAME_TARGET_HEIGHT
-    );
-    SetWindowMaxSize(
-        GetMonitorWidth(GetCurrentMonitor()), 
-        GetMonitorHeight(GetCurrentMonitor())
-    );
-    if (cfg["window"]["vsync"])         SetWindowState(FLAG_VSYNC_HINT);
-    if (cfg["window"]["borderless"])    SetWindowState(FLAG_BORDERLESS_WINDOWED_MODE);
     SetTargetFPS(window_fps_);
+
+        /**
+         * Read config
+        */
+
+    bool cfg_window_vsync =         cfg["window"]["vsync"];
+    bool cfg_window_borderless =    cfg["window"]["borderless"];
+    bool cfg_debug =                cfg["debug"]["debug"];
+    
+    if (cfg_window_vsync) {
+        SetWindowState(FLAG_VSYNC_HINT);
+    }
+    if (cfg_window_borderless) {
+        window_width_ = GetMonitorWidth(GetCurrentMonitor());
+        window_height_ = GetMonitorHeight(GetCurrentMonitor());
+        SetWindowState(FLAG_BORDERLESS_WINDOWED_MODE);
+    }
     
         /**
          * Load game
@@ -96,10 +94,10 @@ void App::run(std::string cfg_path)
     game_->load_target();
     
         /**
-         * Load debug elements
+         * Load debug
         */
     
-    if (cfg["debug"]["debug"]) {
+    if (cfg_debug) {
         game_->load_debug_world();
     }
 
@@ -122,7 +120,7 @@ void App::run(std::string cfg_path)
         BeginDrawing();
             ClearBackground(BLACK);
             draw_game(calc_game_scale_factor());
-            if (cfg["debug"]["debug"])
+            if (cfg_debug)
             {
                 DrawFPS(4, 4);
             }

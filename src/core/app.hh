@@ -7,6 +7,8 @@
 
 #include <core/game.hh>
 
+using json = nlohmann::json;
+
 
 /// @brief App container.
 /// @brief Contains context for the app: config, 
@@ -39,9 +41,9 @@ public:
     /// @param window_width width of the window
     /// @param window_height height of the window
     /// @param window_fps fps to target
-    App(const char *window_title,  int window_width, int window_height, int window_fps);
+    App(const char *window_title, int window_width, int window_height, int window_fps);
 
     /// @brief Initializes, runs, unloads and closes the app.
-    /// @param cfg_path config directory path. Must end with a slash.
-    void run(std::string cfg_path);
+    /// @param cfg json config file.
+    void run(json cfg);
 };

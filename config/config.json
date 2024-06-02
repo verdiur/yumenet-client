@@ -1,8 +1,11 @@
 {
     "window":
     {
-        "vsync": true,
-        "borderless": false
+        "width": 1280,
+        "height": 960,
+        "fps": 300,
+        "vsync": false,
+        "borderless": true
     },
     "controls":
     {
